@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Play, Home, ShieldCheck, SlidersHorizontal, Gem, Menu } from "lucide-react";
+import { ArrowRight, Play, Home, ShieldCheck, SlidersHorizontal, Gem } from "lucide-react";
+import { SiteHeader } from "@/components/SiteHeader";
 import { EcosystemSection } from "@/components/EcosystemSection";
 import { ProductsSection } from "@/components/ProductsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
@@ -30,8 +31,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const navLinks = ["Zenith", "Solutions", "Experience", "About Us", "Support"];
 
 const features = [
   { icon: Home, line1: "Smart Living", line2: "Redefined" },
