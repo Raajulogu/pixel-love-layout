@@ -77,7 +77,7 @@ export function ContactSection() {
           <div className="absolute inset-y-0 right-0 w-2/5 bg-linear-to-l from-backdrop to-transparent" />
         </div>
 
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 pt-12 pb-14 sm:px-10 lg:grid-cols-[42%_minmax(0,1fr)] lg:gap-0 lg:pt-24 lg:pb-24">
+        <div className="relative mx-auto grid max-w-[95rem] grid-cols-1 items-center gap-10 px-6 pt-12 pb-14 sm:px-10 lg:grid-cols-[42%_minmax(0,1fr)] lg:gap-0 lg:pt-24 lg:pb-24">
           <div aria-hidden className="hidden lg:block" />
 
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,25rem)] lg:gap-10">
@@ -178,7 +178,7 @@ export function ContactSection() {
       </div>
 
       {/* Assurance strip */}
-      <div className="relative mx-auto max-w-7xl px-6 pb-16 sm:px-10">
+      <div className="relative mx-auto max-w-[95rem] px-6 pb-16 sm:px-10">
         <div className="grid grid-cols-1 gap-8 rounded-3xl border border-foreground/10 bg-hero-base/80 px-8 py-8 backdrop-blur-xs sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-0">
           {assurances.map(({ icon: Icon, title, body }, i) => (
             <div
