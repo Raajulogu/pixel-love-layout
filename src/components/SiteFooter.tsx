@@ -1,0 +1,111 @@
+import { ArrowRight, Linkedin, Instagram, Youtube, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
+
+const columns = [
+  {
+    title: "Explore",
+    links: ["Home", "About Lumiwaves", "Zenith Products", "Smart Ecosystem", "Experience Center", "Contact"],
+  },
+  {
+    title: "Zenith",
+    links: ["Smart Switches", "Touch Panels", "Smart Locks", "Smart Lighting", "Automation Hub", "All Products"],
+  },
+  {
+    title: "Support",
+    links: ["Installation Process", "User Guides", "Warranty", "Service & Support", "FAQs"],
+  },
+];
+
+const socials = [
+  { icon: Linkedin, label: "LinkedIn" },
+  { icon: Instagram, label: "Instagram" },
+  { icon: Youtube, label: "YouTube" },
+  { icon: MessageCircle, label: "WhatsApp" },
+];
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-foreground/10 bg-hero-base px-6 pt-16 pb-8 sm:px-10">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)_1.2fr] lg:gap-10">
+        <div className="min-w-0">
+          <div className="flex items-center gap-4">
+            <svg viewBox="0 0 60 16" className="h-5 w-14 shrink-0 text-gold" aria-hidden="true">
+              <path d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3" fill="none" stroke="currentColor" strokeWidth="1.4" />
+            </svg>
+            <div className="min-w-0">
+              <p className="truncate font-display text-3xl font-medium text-foreground">Lumiwaves</p>
+              <p className="text-sm text-muted-foreground">Living, Smarter.</p>
+            </div>
+          </div>
+          <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-muted-foreground">
+            We create intelligent living experiences that blend technology, design and comfort — for
+            homes that deserve more.
+          </p>
+          <div className="mt-8 flex items-center gap-4">
+            {socials.map(({ icon: Icon, label }) => (
+              <a
+                key={label}
+                href="#"
+                aria-label={label}
+                className="grid h-11 w-11 place-items-center rounded-full border border-foreground/15 text-foreground/80 transition-colors duration-300 hover:border-gold hover:text-gold"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {columns.map((col) => (
+          <nav key={col.title} className="min-w-0 lg:border-l lg:border-foreground/10 lg:pl-8">
+            <h3 className="font-display text-lg font-medium text-foreground">{col.title}</h3>
+            <ul className="mt-5 space-y-3">
+              {col.links.map((l) => (
+                <li key={l}>
+                  <a
+                    href="#"
+                    className="text-[0.95rem] text-muted-foreground transition-colors duration-300 hover:text-gold"
+                  >
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+
+        <div className="min-w-0">
+          <h3 className="font-display text-lg font-medium text-foreground">Get in Touch</h3>
+          <ul className="mt-5 space-y-4 text-[0.95rem] text-muted-foreground">
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              Pondicherry, India
+            </li>
+            <li className="flex items-start gap-3">
+              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              +91 98765 43210
+            </li>
+            <li className="flex items-start gap-3">
+              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              hello@lumiwaves.in
+            </li>
+          </ul>
+          <a
+            href="#contact"
+            className="group mt-7 inline-flex items-center gap-3 rounded-full border border-gold/60 px-7 py-3.5 text-[0.95rem] text-gold transition-colors duration-300 hover:bg-gold hover:text-hero-base"
+          >
+            Book a Free Consultation
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 border-t border-foreground/10 pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <p>© 2024 Lumiwaves. All rights reserved.</p>
+        <div className="flex items-center gap-4">
+          <a href="#" className="transition-colors duration-300 hover:text-gold">Privacy Policy</a>
+          <span className="text-foreground/20">|</span>
+          <a href="#" className="transition-colors duration-300 hover:text-gold">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
