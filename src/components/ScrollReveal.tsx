@@ -37,11 +37,20 @@ export function ScrollReveal() {
     };
 
     let id = 0;
+    let started = false;
     // Defer past hydration so we never mutate classNames React is still matching.
-    const start = window.setTimeout(() => {
+    const begin = () => {
+      if (started) return;
+      started = true;
       scan();
       id = window.setInterval(scan, 800);
-    }, 120);
+    };
+    const start = window.setTimeout(begin, 1200);
+    if (document.readyState === "complete") {
+      requestAnimationFrame(() => requestAnimationFrame(begin));
+    } else {
+      window.addEventListener("load", () => requestAnimationFrame(begin), { once: true });
+    }
     return () => {
       window.clearTimeout(start);
       window.clearInterval(id);
