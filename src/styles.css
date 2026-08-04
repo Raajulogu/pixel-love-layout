@@ -173,3 +173,29 @@
   from { transform: scale(1); }
   to { transform: scale(1.07); }
 }
+
+/* Viewport-triggered reveal (see ScrollReveal.tsx) */
+.animate-rise.reveal-pending {
+  animation: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate-rise.reveal-in {
+  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-slow-zoom {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Horizontal swipe rails on touch devices */
+@utility snap-rail {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
