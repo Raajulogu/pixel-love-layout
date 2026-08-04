@@ -64,8 +64,8 @@ export function ContactSection() {
       </div>
 
       {/* Image + content band */}
-      <div className="relative mt-10 lg:mt-[-2.5rem]">
-        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[46%] overflow-hidden lg:block">
+      <div className="relative mt-12">
+        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[44%] overflow-hidden lg:block">
           <img
             src={roomImg}
             alt="Warmly lit modern living room with a Zenith control panel"
@@ -74,13 +74,13 @@ export function ContactSection() {
             loading="lazy"
             className="h-full w-full animate-slow-zoom object-cover"
           />
-          <div className="absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-backdrop to-transparent" />
+          <div className="absolute inset-y-0 right-0 w-2/5 bg-linear-to-l from-backdrop to-transparent" />
         </div>
 
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 pt-12 pb-14 sm:px-10 lg:grid-cols-[46%_minmax(0,1fr)] lg:gap-0 lg:pt-40 lg:pb-24">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 pt-12 pb-14 sm:px-10 lg:grid-cols-[42%_minmax(0,1fr)] lg:gap-0 lg:pt-24 lg:pb-24">
           <div aria-hidden className="hidden lg:block" />
 
-          <div className="grid grid-cols-1 items-center gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] xl:gap-12">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,25rem)] lg:gap-10">
             {/* Help items */}
             <ul className="space-y-8">
               {helpItems.map(({ icon: Icon, title, body }, i) => (
@@ -94,7 +94,7 @@ export function ContactSection() {
                   </span>
                   <div className="min-w-0">
                     <h3 className="font-display text-lg font-medium text-foreground">{title}</h3>
-                    <p className="mt-1 max-w-[19rem] text-[0.95rem] leading-relaxed text-muted-foreground">
+                    <p className="mt-1 text-[0.95rem] leading-relaxed text-muted-foreground">
                       {body}
                     </p>
                   </div>
@@ -189,8 +189,8 @@ export function ContactSection() {
             >
               <Icon className="h-9 w-9 shrink-0 text-gold" strokeWidth={1.2} />
               <div className="min-w-0">
-                <p className="truncate text-[0.95rem] font-medium text-foreground">{title}</p>
-                <p className="truncate text-sm text-muted-foreground">{body}</p>
+                <p className="text-[0.95rem] font-medium text-foreground">{title}</p>
+                <p className="text-sm text-muted-foreground">{body}</p>
               </div>
             </div>
           ))}
