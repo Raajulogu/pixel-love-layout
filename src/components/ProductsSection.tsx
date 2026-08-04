@@ -52,7 +52,7 @@ const assurances = [
 
 export function ProductsSection() {
   return (
-    <section className="bg-backdrop px-3 py-20 sm:px-5 sm:py-24 lg:px-6">
+    <section className="bg-backdrop px-6 py-16 sm:px-12 sm:py-24 lg:px-20 lg:py-28 2xl:px-30">
       {/* Heading */}
       <div className="flex flex-col items-center text-center">
         <p className="animate-rise text-xs font-medium uppercase tracking-[0.35em] text-gold">Our Products</p>

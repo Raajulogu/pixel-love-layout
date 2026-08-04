@@ -77,7 +77,7 @@ function FeatureItem({
 
 export function EcosystemSection() {
   return (
-    <section className="relative mt-4 overflow-hidden rounded-[2rem] bg-hero-base px-6 py-20 sm:px-10 sm:py-24 lg:px-14">
+    <section className="relative mt-4 overflow-hidden rounded-[2rem] bg-hero-base px-6 py-16 sm:px-12 sm:py-24 lg:px-14 lg:py-28 2xl:px-20">
       {/* Heading */}
       <div className="mx-auto max-w-3xl animate-rise text-center">
         <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Smart Ecosystem</p>

@@ -36,7 +36,7 @@ const numbers = [
 
 export function StoriesSection() {
   return (
-    <section className="bg-backdrop px-3 py-20 sm:px-5 sm:py-24 lg:px-6">
+    <section className="bg-backdrop px-6 py-16 sm:px-12 sm:py-24 lg:px-20 lg:py-28 2xl:px-30">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
