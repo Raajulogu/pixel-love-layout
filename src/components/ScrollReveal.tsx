@@ -36,9 +36,14 @@ export function ScrollReveal() {
       });
     };
 
-    scan();
-    const id = window.setInterval(scan, 800);
+    let id = 0;
+    // Defer past hydration so we never mutate classNames React is still matching.
+    const start = window.setTimeout(() => {
+      scan();
+      id = window.setInterval(scan, 800);
+    }, 120);
     return () => {
+      window.clearTimeout(start);
       window.clearInterval(id);
       observer.disconnect();
     };
