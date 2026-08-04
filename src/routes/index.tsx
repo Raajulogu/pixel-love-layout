@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Play, Home, ShieldCheck, SlidersHorizontal, Gem, Menu } from "lucide-react";
+import { ArrowRight, Play, Home, ShieldCheck, SlidersHorizontal, Gem } from "lucide-react";
+import { SiteHeader } from "@/components/SiteHeader";
 import { EcosystemSection } from "@/components/EcosystemSection";
 import { ProductsSection } from "@/components/ProductsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
@@ -30,8 +31,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const navLinks = ["Zenith", "Solutions", "Experience", "About Us", "Support"];
 
 const features = [
   { icon: Home, line1: "Smart Living", line2: "Redefined" },
@@ -68,90 +67,70 @@ function Index() {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-hero-base to-transparent" />
         </div>
 
-        <div className="relative flex min-h-[calc(100vh-1.5rem)] flex-col lg:min-h-[860px]">
-          {/* Nav */}
-          <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-6 sm:px-10 lg:px-14">
-            <a href="/" className="flex min-w-0 flex-col gap-1">
-              <svg viewBox="0 0 60 16" className="h-3 w-14 text-gold" aria-hidden="true">
-                <path
-                  d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.4"
-                />
-              </svg>
-              <span className="truncate font-display text-lg font-semibold tracking-[0.22em] text-foreground sm:text-xl">
-                LUMIWAVES
-              </span>
-            </a>
-
-            <nav className="hidden items-center gap-8 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2">
-              {navLinks.map((l) => (
-                <a
-                  key={l}
-                  href="#"
-                  className="relative text-[0.95rem] text-foreground/85 transition-colors duration-300 hover:text-gold after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {l}
-                </a>
-              ))}
-            </nav>
-
-            <div className="flex shrink-0 items-center gap-3">
-              <a
-                href="#"
-                className="hidden rounded-full border border-foreground/25 px-6 py-3 text-sm text-foreground transition-all duration-300 hover:border-gold hover:text-gold sm:inline-flex"
-              >
-                Book Experience
-              </a>
-              <button
-                aria-label="Open menu"
-                className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-foreground/25 text-foreground transition-colors duration-300 hover:border-gold hover:text-gold"
-              >
-                <Menu className="h-4 w-4" />
-              </button>
-            </div>
-          </header>
+        <div className="relative flex min-h-dvh flex-col lg:min-h-[860px]">
+          <SiteHeader />
 
           {/* Copy */}
-          <div className="flex flex-1 flex-col justify-center px-6 pt-10 pb-8 sm:px-10 lg:px-14">
+          <div className="flex flex-1 flex-col justify-center px-6 pt-10 pb-8 sm:px-12 sm:pt-14 lg:px-14 xl:px-20">
             <div className="max-w-xl animate-rise">
               <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Introducing</p>
-              <h1 className="mt-6 font-display text-[clamp(3rem,9vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.03em] text-foreground">
+              <h1 className="mt-6 font-display text-[clamp(2.75rem,11vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.03em] text-foreground sm:text-[clamp(3.5rem,9vw,6.5rem)]">
                 Meet
                 <br />
                 <span className="text-gold">Zenith.</span>
               </h1>
-              <p className="mt-8 font-display text-[clamp(1.35rem,2.4vw,1.9rem)] font-light leading-snug text-foreground/90">
+              <p className="mt-6 font-display text-[1.35rem] font-light leading-snug text-foreground/90 sm:mt-8 sm:text-[clamp(1.5rem,2.4vw,1.9rem)]">
                 The intelligence behind
                 <br className="hidden sm:block" /> every modern home.
               </p>
-              <p className="mt-7 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-md text-[1rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-[0.95rem]">
                 Zenith is a premium smart automation ecosystem designed by Lumiwaves to bring comfort,
                 control and elegance into your everyday life.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center">
                 <a
                   href="#"
-                  className="group inline-flex items-center gap-4 rounded-full bg-foreground px-8 py-4 text-[0.95rem] font-medium text-hero-base transition-transform duration-300 hover:-translate-y-0.5"
+                  className="group inline-flex min-h-14 w-full items-center justify-center gap-4 rounded-full bg-foreground px-8 text-[0.95rem] font-medium text-hero-base transition-transform duration-300 hover:-translate-y-0.5 active:scale-[0.98] sm:w-auto"
                 >
                   Explore Zenith
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
                 <a
-                  href="#"
-                  className="inline-flex items-center gap-3 rounded-full border border-foreground/20 px-8 py-4 text-[0.95rem] text-foreground transition-colors duration-300 hover:border-gold hover:text-gold"
+                  href="#contact"
+                  className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full border border-foreground/20 px-8 text-[0.95rem] text-foreground transition-colors duration-300 hover:border-gold hover:text-gold active:scale-[0.98] sm:w-auto"
                 >
                   <Play className="h-4 w-4 fill-current" />
                   Watch Experience
                 </a>
               </div>
             </div>
+
+            {/* Mobile / tablet product visual */}
+            <div className="animate-rise mt-12 grid grid-cols-2 gap-3 lg:hidden" style={{ animationDelay: "160ms" }}>
+              <div className="col-span-1 overflow-hidden rounded-2xl ring-1 ring-foreground/10">
+                <img
+                  src={panelImg}
+                  alt="Zenith smart control panel mounted on a dark wall"
+                  width={912}
+                  height={1200}
+                  className="aspect-3/4 w-full animate-slow-zoom object-cover brightness-110"
+                />
+              </div>
+              <div className="col-span-1 overflow-hidden rounded-2xl ring-1 ring-foreground/10">
+                <img
+                  src={roomImg}
+                  alt="Warmly lit modern living room at night"
+                  width={912}
+                  height={1200}
+                  className="aspect-3/4 w-full animate-slow-zoom object-cover brightness-110"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Feature strip */}
-          <div className="grid max-w-3xl grid-cols-2 gap-y-8 px-6 pb-12 sm:px-10 md:grid-cols-4 md:gap-y-0 lg:px-14">
+          <div className="grid max-w-3xl grid-cols-2 gap-y-8 px-6 pb-12 sm:px-12 md:grid-cols-4 md:gap-y-0 lg:px-14 xl:px-20">
             {features.map(({ icon: Icon, line1, line2 }, i) => (
               <div
                 key={line1}
@@ -165,6 +144,7 @@ function Index() {
             ))}
           </div>
         </div>
+
       </section>
 
       <EcosystemSection />

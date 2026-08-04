@@ -24,10 +24,10 @@ const socials = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-foreground/10 bg-hero-base px-6 pt-16 pb-8 sm:px-10">
+    <footer className="border-t border-foreground/10 bg-hero-base px-6 pt-16 pb-8 text-center sm:px-12 sm:text-left lg:px-20 2xl:px-30">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)_1.2fr] lg:gap-10">
         <div className="min-w-0">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center gap-4 sm:justify-start">
             <svg viewBox="0 0 60 16" className="h-5 w-14 shrink-0 text-gold" aria-hidden="true">
               <path d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3" fill="none" stroke="currentColor" strokeWidth="1.4" />
             </svg>
@@ -36,17 +36,17 @@ export function SiteFooter() {
               <p className="text-sm text-muted-foreground">Living, Smarter.</p>
             </div>
           </div>
-          <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-sm text-[0.95rem] sm:mx-0 leading-relaxed text-muted-foreground">
             We create intelligent living experiences that blend technology, design and comfort — for
             homes that deserve more.
           </p>
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-8 flex items-center justify-center gap-4 sm:justify-start">
             {socials.map(({ icon: Icon, label }) => (
               <a
                 key={label}
                 href="#"
                 aria-label={label}
-                className="grid h-11 w-11 place-items-center rounded-full border border-foreground/15 text-foreground/80 transition-colors duration-300 hover:border-gold hover:text-gold"
+                className="grid h-12 w-12 place-items-center rounded-full border border-foreground/15 text-foreground/80 transition-colors duration-300 hover:border-gold hover:text-gold"
               >
                 <Icon className="h-4 w-4" />
               </a>
@@ -62,7 +62,7 @@ export function SiteFooter() {
                 <li key={l}>
                   <a
                     href="#"
-                    className="text-[0.95rem] text-muted-foreground transition-colors duration-300 hover:text-gold"
+                    className="inline-flex min-h-11 items-center text-[0.95rem] text-muted-foreground transition-colors duration-300 hover:text-gold"
                   >
                     {l}
                   </a>
@@ -75,15 +75,15 @@ export function SiteFooter() {
         <div className="min-w-0">
           <h3 className="font-display text-lg font-medium text-foreground">Get in Touch</h3>
           <ul className="mt-5 space-y-4 text-[0.95rem] text-muted-foreground">
-            <li className="flex items-start gap-3">
+            <li className="flex items-start justify-center gap-3 sm:justify-start">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
               Pondicherry, India
             </li>
-            <li className="flex items-start gap-3">
+            <li className="flex items-start justify-center gap-3 sm:justify-start">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
               +91 98765 43210
             </li>
-            <li className="flex items-start gap-3">
+            <li className="flex items-start justify-center gap-3 sm:justify-start">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
               hello@lumiwaves.in
             </li>
@@ -100,7 +100,7 @@ export function SiteFooter() {
 
       <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 border-t border-foreground/10 pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>© 2024 Lumiwaves. All rights reserved.</p>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-center gap-4 sm:justify-start">
           <a href="#" className="transition-colors duration-300 hover:text-gold">Privacy Policy</a>
           <span className="text-foreground/20">|</span>
           <a href="#" className="transition-colors duration-300 hover:text-gold">Terms of Service</a>

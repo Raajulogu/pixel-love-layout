@@ -36,9 +36,9 @@ const numbers = [
 
 export function StoriesSection() {
   return (
-    <section className="bg-backdrop px-3 py-20 sm:px-5 sm:py-24 lg:px-6">
+    <section className="bg-backdrop px-6 py-16 sm:px-12 sm:py-24 lg:px-20 lg:py-28 2xl:px-30">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:flex-wrap sm:items-end">
           <div>
             <p className="animate-rise text-xs font-medium uppercase tracking-[0.35em] text-gold">
               Customer Stories
@@ -59,11 +59,11 @@ export function StoriesSection() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,1fr)]">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div className="snap-rail -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0">
             {stories.map((s, i) => (
               <article
                 key={s.name}
-                className="animate-rise overflow-hidden rounded-2xl bg-hero-base/80 ring-1 ring-foreground/[0.06] transition-colors duration-300 hover:ring-gold/40"
+                className="animate-rise w-[86%] shrink-0 snap-center overflow-hidden rounded-2xl bg-hero-base/80 ring-1 ring-foreground/[0.06] transition-colors duration-300 hover:ring-gold/40 sm:w-auto sm:shrink"
                 style={{ animationDelay: `${100 + i * 90}ms` }}
               >
                 <img
@@ -72,7 +72,7 @@ export function StoriesSection() {
                   width={900}
                   height={700}
                   loading="lazy"
-                  className="h-52 w-full object-cover"
+                  className="h-56 w-full object-cover sm:h-52"
                 />
                 <div className="px-6 pb-7 pt-5">
                   <div className="flex gap-1 text-gold">

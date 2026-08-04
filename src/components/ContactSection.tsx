@@ -43,9 +43,9 @@ const fieldBase =
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-backdrop pt-20 sm:pt-24">
+    <section id="contact" className="relative overflow-hidden bg-backdrop pt-16 sm:pt-24">
       {/* Heading */}
-      <div className="mx-auto max-w-3xl px-6 text-center">
+      <div className="mx-auto max-w-3xl px-6 text-center sm:px-12">
         <div className="flex items-center justify-center gap-4">
           <span className="hidden h-px w-16 bg-linear-to-r from-transparent to-gold/50 sm:block" />
           <p className="font-display text-sm tracking-[0.18em] text-gold sm:text-base">
@@ -53,7 +53,7 @@ export function ContactSection() {
           </p>
           <span className="hidden h-px w-16 bg-linear-to-l from-transparent to-gold/50 sm:block" />
         </div>
-        <h2 className="mt-4 font-display text-[clamp(2.25rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground">
+        <h2 className="mt-4 font-display text-[clamp(1.9rem,8vw,4rem)] sm:text-[clamp(2.6rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground">
           Ready to Experience <span className="text-gold">Zenith?</span>
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground">
@@ -77,7 +77,17 @@ export function ContactSection() {
           <div className="absolute inset-y-0 right-0 w-2/5 bg-linear-to-l from-backdrop to-transparent" />
         </div>
 
-        <div className="relative mx-auto grid max-w-[95rem] grid-cols-1 items-center gap-10 px-6 pt-12 pb-14 sm:px-10 lg:grid-cols-[42%_minmax(0,1fr)] lg:gap-0 lg:pt-24 lg:pb-24">
+        <div className="relative mx-auto grid max-w-[95rem] grid-cols-1 items-center gap-10 px-6 pt-12 pb-14 sm:px-12 lg:px-20 2xl:px-30 lg:grid-cols-[42%_minmax(0,1fr)] lg:gap-0 lg:pt-24 lg:pb-24">
+          <div className="animate-rise overflow-hidden rounded-2xl ring-1 ring-foreground/10 lg:hidden">
+            <img
+              src={roomImg}
+              alt="Warmly lit modern living room with a Zenith control panel"
+              width={912}
+              height={640}
+              loading="lazy"
+              className="aspect-4/3 w-full object-cover"
+            />
+          </div>
           <div aria-hidden className="hidden lg:block" />
 
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,25rem)] lg:gap-10">
@@ -167,7 +177,7 @@ export function ContactSection() {
 
               <button
                 type="submit"
-                className="group mt-5 inline-flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-linear-to-r from-gold to-gold/80 text-[0.95rem] font-medium text-hero-base transition-transform duration-300 hover:-translate-y-0.5"
+                className="group mt-5 inline-flex h-14 min-h-12 w-full items-center justify-center gap-3 rounded-xl bg-linear-to-r from-gold to-gold/80 text-[0.95rem] font-medium text-hero-base transition-transform duration-300 hover:-translate-y-0.5"
               >
                 Get in Touch
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -178,7 +188,7 @@ export function ContactSection() {
       </div>
 
       {/* Assurance strip */}
-      <div className="relative mx-auto max-w-[95rem] px-6 pb-16 sm:px-10">
+      <div className="relative mx-auto max-w-[95rem] px-6 pb-16 sm:px-12 lg:px-20 2xl:px-30">
         <div className="grid grid-cols-1 gap-8 rounded-3xl border border-foreground/10 bg-hero-base/80 px-8 py-8 backdrop-blur-xs sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-0">
           {assurances.map(({ icon: Icon, title, body }, i) => (
             <div
