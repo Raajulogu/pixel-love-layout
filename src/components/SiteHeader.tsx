@@ -1,0 +1,128 @@
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { Menu, X, ArrowRight } from "lucide-react";
+
+const navLinks = ["Zenith", "Solutions", "Experience", "About Us", "Support"];
+
+export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <>
+      <header className="sticky top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-foreground/5 bg-hero-base/80 px-6 py-4 backdrop-blur-md sm:px-10 lg:relative lg:border-0 lg:bg-transparent lg:py-6 lg:backdrop-blur-none xl:px-14">
+        <a href="/" className="flex min-w-0 flex-col gap-1">
+          <svg viewBox="0 0 60 16" className="h-3 w-14 text-gold" aria-hidden="true">
+            <path
+              d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+            />
+          </svg>
+          <span className="truncate font-display text-base font-semibold tracking-[0.22em] text-foreground sm:text-lg lg:text-xl">
+            LUMIWAVES
+          </span>
+        </a>
+
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-8 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2"
+        >
+          {navLinks.map((l) => (
+            <a
+              key={l}
+              href="#"
+              className="relative text-[0.95rem] text-foreground/85 transition-colors duration-300 hover:text-gold focus-visible:text-gold focus-visible:outline-hidden after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+            >
+              {l}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex shrink-0 items-center gap-3">
+          <a
+            href="#contact"
+            className="hidden rounded-full border border-foreground/25 px-6 py-3 text-sm text-foreground transition-all duration-300 hover:border-gold hover:text-gold sm:inline-flex"
+          >
+            Book Experience
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-foreground/25 text-foreground transition-colors duration-300 hover:border-gold hover:text-gold focus-visible:border-gold focus-visible:outline-hidden"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </header>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-background/70 backdrop-blur-xl"
+            onClick={() => setOpen(false)}
+          >
+            <motion.nav
+              aria-label="Mobile"
+              initial={{ y: -24, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -24, opacity: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="mt-[76px] flex h-[calc(100dvh-76px)] flex-col justify-between overflow-y-auto px-6 pb-10 pt-8 sm:px-10"
+            >
+              <ul className="flex flex-col">
+                {navLinks.map((l, i) => (
+                  <motion.li
+                    key={l}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.06 * i }}
+                    className="border-b border-foreground/10"
+                  >
+                    <a
+                      href="#"
+                      onClick={() => setOpen(false)}
+                      className="flex min-h-14 items-center justify-between py-5 font-display text-2xl font-light text-foreground transition-colors duration-300 hover:text-gold"
+                    >
+                      {l}
+                      <ArrowRight className="h-4 w-4 text-gold" />
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="mt-10 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-linear-to-r from-gold to-gold/80 px-8 text-[0.95rem] font-medium text-hero-base transition-transform duration-300 active:scale-[0.98]"
+              >
+                Book Experience
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
