@@ -174,16 +174,18 @@
   to { transform: scale(1.07); }
 }
 
-/* Viewport-triggered reveal (see ScrollReveal.tsx) */
-.animate-rise.reveal-pending {
-  animation: none;
-  opacity: 0;
-  transform: translateY(20px);
+/* Viewport-triggered reveal: pure CSS scroll-driven, no JS class mutation */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-rise {
+      animation: rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 22%;
+      animation-delay: 0s !important;
+    }
+  }
 }
 
-.animate-rise.reveal-in {
-  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .animate-rise,
