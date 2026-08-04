@@ -58,7 +58,7 @@ export function ExperienceSection() {
 
       <div className="mx-auto mt-14 grid max-w-7xl grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.6fr)] lg:gap-14">
         {/* Pillars */}
-        <div className="lg:pt-2">
+        <div className="order-2 lg:order-1 lg:pt-2">
           {pillars.map(({ icon: Icon, title, line1, line2 }, i) => (
             <div
               key={title}
@@ -91,7 +91,7 @@ export function ExperienceSection() {
         </div>
 
         {/* Visual */}
-        <div className="animate-rise relative overflow-hidden rounded-2xl ring-1 ring-foreground/[0.08]" style={{ animationDelay: "180ms" }}>
+        <div className="animate-rise relative order-1 overflow-hidden rounded-2xl ring-1 ring-foreground/[0.08] lg:order-2" style={{ animationDelay: "180ms" }}>
           <img
             src={roomImg}
             alt="Luxury dark living room at night with a wall-mounted Zenith control panel"
@@ -104,7 +104,7 @@ export function ExperienceSection() {
           {/* Scene bar */}
           <div className="absolute inset-x-4 bottom-4 rounded-xl border border-foreground/10 bg-background/70 px-5 py-4 backdrop-blur-md sm:inset-x-6 sm:bottom-6 sm:px-7 sm:py-5">
             <p className="text-[0.8rem] text-muted-foreground">Scenes for Every Moment</p>
-            <div className="mt-4 grid grid-cols-6 gap-2">
+            <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-2">
               {scenes.map(({ icon: Icon, label, active }) => (
                 <button
                   key={label}
