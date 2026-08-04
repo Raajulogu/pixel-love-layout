@@ -5,6 +5,8 @@ import { ProductsSection } from "@/components/ProductsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { WhyZenithSection } from "@/components/WhyZenithSection";
 import { StoriesSection } from "@/components/StoriesSection";
+import { ContactSection } from "@/components/ContactSection";
+import { SiteFooter } from "@/components/SiteFooter";
 import panelImg from "@/assets/zenith-panel.jpg";
 import roomImg from "@/assets/zenith-room.jpg";
 
@@ -170,6 +172,8 @@ function Index() {
       <ExperienceSection />
       <WhyZenithSection />
       <StoriesSection />
+      <ContactSection />
+      <SiteFooter />
     </main>
   );
 }
