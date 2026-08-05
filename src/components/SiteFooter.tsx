@@ -1,19 +1,41 @@
 import { ArrowRight, Linkedin, Instagram, Youtube, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
-const columns = [
+const columns: { title: string; links: { label: string; to: string }[] }[] = [
   {
     title: "Explore",
-    links: ["Home", "About Lumiwaves", "Zenith Products", "Smart Ecosystem", "Experience Center", "Contact"],
+    links: [
+      { label: "Home", to: "/" },
+      { label: "About Lumiwaves", to: "/about" },
+      { label: "Zenith Products", to: "/" },
+      { label: "Smart Ecosystem", to: "/" },
+      { label: "Experience Center", to: "/contact" },
+      { label: "Contact", to: "/contact" },
+    ],
   },
   {
     title: "Zenith",
-    links: ["Smart Switches", "Touch Panels", "Smart Locks", "Smart Lighting", "Automation Hub", "All Products"],
+    links: [
+      { label: "Smart Switches", to: "/" },
+      { label: "Touch Panels", to: "/" },
+      { label: "Smart Locks", to: "/" },
+      { label: "Smart Lighting", to: "/" },
+      { label: "Automation Hub", to: "/" },
+      { label: "All Products", to: "/" },
+    ],
   },
   {
     title: "Support",
-    links: ["Installation Process", "User Guides", "Warranty", "Service & Support", "FAQs"],
+    links: [
+      { label: "Installation Process", to: "/about" },
+      { label: "User Guides", to: "/contact" },
+      { label: "Warranty", to: "/contact" },
+      { label: "Service & Support", to: "/contact" },
+      { label: "FAQs", to: "/contact" },
+    ],
   },
 ];
+
 
 const socials = [
   { icon: Linkedin, label: "LinkedIn" },
