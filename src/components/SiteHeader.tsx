@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { Link } from "@tanstack/react-router";
 import { Menu, X, ArrowRight } from "lucide-react";
 
-const navLinks = ["Zenith", "Solutions", "Experience", "About Us", "Support"];
+const navLinks: { label: string; to: string }[] = [
+  { label: "Zenith", to: "/" },
+  { label: "Solutions", to: "/" },
+  { label: "Experience", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
+
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -41,23 +49,25 @@ export function SiteHeader() {
           className="hidden items-center gap-8 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2"
         >
           {navLinks.map((l) => (
-            <a
-              key={l}
-              href="#"
+            <Link
+              key={l.label}
+              to={l.to}
               className="relative text-[0.95rem] text-foreground/85 transition-colors duration-300 hover:text-gold focus-visible:text-gold focus-visible:outline-hidden after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
             >
-              {l}
-            </a>
+              {l.label}
+            </Link>
           ))}
+
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="hidden rounded-full border border-foreground/25 px-6 py-3 text-sm text-foreground transition-all duration-300 hover:border-gold hover:text-gold sm:inline-flex"
           >
             Book Experience
-          </a>
+          </Link>
+
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -93,32 +103,34 @@ export function SiteHeader() {
               <ul className="flex flex-col">
                 {navLinks.map((l, i) => (
                   <motion.li
-                    key={l}
+                    key={l.label}
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.06 * i }}
                     className="border-b border-foreground/10"
                   >
-                    <a
-                      href="#"
+                    <Link
+                      to={l.to}
                       onClick={() => setOpen(false)}
                       className="flex min-h-14 items-center justify-between py-5 font-display text-2xl font-light text-foreground transition-colors duration-300 hover:text-gold"
                     >
-                      {l}
+                      {l.label}
                       <ArrowRight className="h-4 w-4 text-gold" />
-                    </a>
+                    </Link>
                   </motion.li>
+
                 ))}
               </ul>
 
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 onClick={() => setOpen(false)}
                 className="mt-10 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-linear-to-r from-gold to-gold/80 px-8 text-[0.95rem] font-medium text-hero-base transition-transform duration-300 active:scale-[0.98]"
               >
                 Book Experience
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
+
             </motion.nav>
           </motion.div>
         )}

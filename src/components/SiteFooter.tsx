@@ -1,19 +1,41 @@
 import { ArrowRight, Linkedin, Instagram, Youtube, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
-const columns = [
+const columns: { title: string; links: { label: string; to: string }[] }[] = [
   {
     title: "Explore",
-    links: ["Home", "About Lumiwaves", "Zenith Products", "Smart Ecosystem", "Experience Center", "Contact"],
+    links: [
+      { label: "Home", to: "/" },
+      { label: "About Lumiwaves", to: "/about" },
+      { label: "Zenith Products", to: "/" },
+      { label: "Smart Ecosystem", to: "/" },
+      { label: "Experience Center", to: "/contact" },
+      { label: "Contact", to: "/contact" },
+    ],
   },
   {
     title: "Zenith",
-    links: ["Smart Switches", "Touch Panels", "Smart Locks", "Smart Lighting", "Automation Hub", "All Products"],
+    links: [
+      { label: "Smart Switches", to: "/" },
+      { label: "Touch Panels", to: "/" },
+      { label: "Smart Locks", to: "/" },
+      { label: "Smart Lighting", to: "/" },
+      { label: "Automation Hub", to: "/" },
+      { label: "All Products", to: "/" },
+    ],
   },
   {
     title: "Support",
-    links: ["Installation Process", "User Guides", "Warranty", "Service & Support", "FAQs"],
+    links: [
+      { label: "Installation Process", to: "/about" },
+      { label: "User Guides", to: "/contact" },
+      { label: "Warranty", to: "/contact" },
+      { label: "Service & Support", to: "/contact" },
+      { label: "FAQs", to: "/contact" },
+    ],
   },
 ];
+
 
 const socials = [
   { icon: Linkedin, label: "LinkedIn" },
@@ -59,15 +81,16 @@ export function SiteFooter() {
             <h3 className="font-display text-lg font-medium text-foreground">{col.title}</h3>
             <ul className="mt-5 space-y-3">
               {col.links.map((l) => (
-                <li key={l}>
-                  <a
-                    href="#"
+                <li key={l.label}>
+                  <Link
+                    to={l.to}
                     className="inline-flex min-h-11 items-center text-[0.95rem] text-muted-foreground transition-colors duration-300 hover:text-gold"
                   >
-                    {l}
-                  </a>
+                    {l.label}
+                  </Link>
                 </li>
               ))}
+
             </ul>
           </nav>
         ))}
@@ -88,13 +111,14 @@ export function SiteFooter() {
               hello@lumiwaves.in
             </li>
           </ul>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="group mt-7 inline-flex items-center gap-3 rounded-full border border-gold/60 px-7 py-3.5 text-[0.95rem] text-gold transition-colors duration-300 hover:bg-gold hover:text-hero-base"
           >
             Book a Free Consultation
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          </Link>
+
         </div>
       </div>
 
