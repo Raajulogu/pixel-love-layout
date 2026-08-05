@@ -102,21 +102,22 @@ export function SiteHeader() {
               <ul className="flex flex-col">
                 {navLinks.map((l, i) => (
                   <motion.li
-                    key={l}
+                    key={l.label}
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.06 * i }}
                     className="border-b border-foreground/10"
                   >
-                    <a
-                      href="#"
+                    <Link
+                      to={l.to}
                       onClick={() => setOpen(false)}
                       className="flex min-h-14 items-center justify-between py-5 font-display text-2xl font-light text-foreground transition-colors duration-300 hover:text-gold"
                     >
-                      {l}
+                      {l.label}
                       <ArrowRight className="h-4 w-4 text-gold" />
-                    </a>
+                    </Link>
                   </motion.li>
+
                 ))}
               </ul>
 
