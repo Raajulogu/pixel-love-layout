@@ -81,15 +81,16 @@ export function SiteFooter() {
             <h3 className="font-display text-lg font-medium text-foreground">{col.title}</h3>
             <ul className="mt-5 space-y-3">
               {col.links.map((l) => (
-                <li key={l}>
-                  <a
-                    href="#"
+                <li key={l.label}>
+                  <Link
+                    to={l.to}
                     className="inline-flex min-h-11 items-center text-[0.95rem] text-muted-foreground transition-colors duration-300 hover:text-gold"
                   >
-                    {l}
-                  </a>
+                    {l.label}
+                  </Link>
                 </li>
               ))}
+
             </ul>
           </nav>
         ))}
