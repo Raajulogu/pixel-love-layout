@@ -61,12 +61,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="hidden rounded-full border border-foreground/25 px-6 py-3 text-sm text-foreground transition-all duration-300 hover:border-gold hover:text-gold sm:inline-flex"
           >
             Book Experience
-          </a>
+          </Link>
+
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
