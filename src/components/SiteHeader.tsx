@@ -49,14 +49,15 @@ export function SiteHeader() {
           className="hidden items-center gap-8 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2"
         >
           {navLinks.map((l) => (
-            <a
-              key={l}
-              href="#"
+            <Link
+              key={l.label}
+              to={l.to}
               className="relative text-[0.95rem] text-foreground/85 transition-colors duration-300 hover:text-gold focus-visible:text-gold focus-visible:outline-hidden after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
             >
-              {l}
-            </a>
+              {l.label}
+            </Link>
           ))}
+
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
