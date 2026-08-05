@@ -111,13 +111,14 @@ export function SiteFooter() {
               hello@lumiwaves.in
             </li>
           </ul>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="group mt-7 inline-flex items-center gap-3 rounded-full border border-gold/60 px-7 py-3.5 text-[0.95rem] text-gold transition-colors duration-300 hover:bg-gold hover:text-hero-base"
           >
             Book a Free Consultation
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          </Link>
+
         </div>
       </div>
 
