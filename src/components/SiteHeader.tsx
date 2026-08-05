@@ -122,14 +122,15 @@ export function SiteHeader() {
                 ))}
               </ul>
 
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 onClick={() => setOpen(false)}
                 className="mt-10 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-linear-to-r from-gold to-gold/80 px-8 text-[0.95rem] font-medium text-hero-base transition-transform duration-300 active:scale-[0.98]"
               >
                 Book Experience
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
+
             </motion.nav>
           </motion.div>
         )}
