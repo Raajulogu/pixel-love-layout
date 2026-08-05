@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { Link } from "@tanstack/react-router";
 import { Menu, X, ArrowRight } from "lucide-react";
 
-const navLinks = ["Zenith", "Solutions", "Experience", "About Us", "Support"];
+const navLinks: { label: string; to: string }[] = [
+  { label: "Zenith", to: "/" },
+  { label: "Solutions", to: "/" },
+  { label: "Experience", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
+
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
