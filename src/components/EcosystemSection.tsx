@@ -12,6 +12,8 @@ import {
   Zap,
   Award,
 } from "lucide-react";
+import { motion } from "motion/react";
+import { reveal, fade } from "@/lib/motion";
 import houseImg from "@/assets/zenith-house.jpg";
 
 const leftFeatures = [
@@ -48,17 +50,17 @@ function FeatureItem({
 }) {
   const { icon: Icon, title, line1, line2 } = feature;
   return (
-    <div
-      className={`flex animate-rise items-start gap-4 ${
+    <motion.div
+      {...reveal(delay / 1000)}
+      className={`flex items-start gap-4 ${
         align === "right" ? "flex-row-reverse text-right lg:flex-row lg:text-left" : ""
       }`}
-      style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border border-gold/25 bg-gold/[0.04] shadow-[inset_0_0_20px_rgba(0,0,0,0.6)] transition-colors duration-300 hover:border-gold/60 sm:h-16 sm:w-16">
+      <div className="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border border-gold/25 bg-gold/[0.04] shadow-[inset_0_0_20px_rgba(0,0,0,0.6)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_0_24px_-6px_rgba(201,168,76,0.45)] sm:h-16 sm:w-16">
         <Icon className="h-6 w-6 text-gold" strokeWidth={1.2} />
         <span
           aria-hidden="true"
-          className={`absolute top-1/2 hidden h-px w-16 border-t border-dashed border-gold/30 lg:block ${
+          className={`absolute top-1/2 hidden h-px w-16 origin-left border-t border-dashed border-gold/30 lg:block ${
             align === "left" ? "left-full ml-3" : "right-full mr-3"
           }`}
         />
@@ -71,7 +73,7 @@ function FeatureItem({
           {line2}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -79,7 +81,7 @@ export function EcosystemSection() {
   return (
     <section className="relative mt-4 overflow-hidden rounded-[2rem] bg-hero-base px-6 py-16 sm:px-12 sm:py-24 lg:px-14 lg:py-28 2xl:px-20">
       {/* Heading */}
-      <div className="mx-auto max-w-3xl animate-rise text-center">
+      <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
         <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Smart Ecosystem</p>
         <h2 className="mt-6 font-display text-[clamp(2.1rem,5vw,3.9rem)] font-normal leading-[1.12] tracking-[-0.02em] text-foreground">
           Everything. Connected.
@@ -105,7 +107,7 @@ export function EcosystemSection() {
             opacity="0.6"
           />
         </svg>
-      </div>
+      </motion.div>
 
       {/* Stage */}
       <div className="mx-auto mt-14 grid max-w-7xl items-center gap-10 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.55fr)_minmax(0,1fr)] lg:gap-6">
@@ -132,7 +134,7 @@ export function EcosystemSection() {
             ].map((pos) => (
               <span
                 key={pos}
-                className={`absolute h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_10px_2px_rgba(201,168,76,0.5)] ${pos}`}
+                className={`soft-pulse absolute h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_10px_2px_rgba(201,168,76,0.5)] ${pos}`}
               />
             ))}
             <img
@@ -145,7 +147,7 @@ export function EcosystemSection() {
             />
 
             {/* Phone */}
-            <div className="absolute bottom-[-6%] left-1/2 w-[27%] min-w-[132px] -translate-x-1/2 animate-rise rounded-[1.6rem] border border-foreground/15 bg-[#0b0b0b] p-2 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)]">
+            <motion.div {...fade(0.25)} className="absolute bottom-[-6%] left-1/2 w-[27%] min-w-[132px] -translate-x-1/2 rounded-[1.6rem] border border-foreground/15 bg-[#0b0b0b] p-2 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)]">
               <div className="rounded-[1.2rem] bg-[#0e0e0e] p-3">
                 <div className="mx-auto mb-3 h-1 w-8 rounded-full bg-foreground/20" />
                 <div className="flex items-center justify-between">
@@ -172,7 +174,7 @@ export function EcosystemSection() {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -189,12 +191,12 @@ export function EcosystemSection() {
       {/* Bottom bar */}
       <div className="mx-auto mt-16 grid max-w-6xl gap-10 rounded-3xl border border-foreground/10 bg-foreground/[0.02] px-6 py-8 sm:grid-cols-2 sm:px-10 lg:mt-24 lg:grid-cols-4 lg:gap-0 lg:px-8">
         {bottomBar.map(({ icon: Icon, title, line1, line2 }, i) => (
-          <div
+          <motion.div
             key={title}
-            className={`flex animate-rise items-start gap-4 ${
+            {...reveal(i * 0.09)}
+            className={`flex items-start gap-4 ${
               i > 0 ? "lg:border-l lg:border-foreground/10 lg:pl-6" : ""
             } ${i < 3 ? "lg:pr-6" : ""}`}
-            style={{ animationDelay: `${150 + i * 90}ms` }}
           >
             <Icon className="mt-1 h-7 w-7 shrink-0 text-gold" strokeWidth={1.1} />
             <div className="min-w-0">
@@ -205,7 +207,7 @@ export function EcosystemSection() {
                 {line2}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
