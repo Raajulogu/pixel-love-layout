@@ -1,4 +1,6 @@
 import { ArrowRight, Lightbulb, Blinds, ShieldCheck, Zap, Sunrise, Laptop, Armchair, Monitor, Wine, Moon } from "lucide-react";
+import { motion } from "motion/react";
+import { reveal, fade, staggerParent, staggerChild, viewportOnce } from "@/lib/motion";
 import roomImg from "@/assets/exp-room.jpg";
 
 const pillars = [
@@ -41,31 +43,37 @@ export function ExperienceSection() {
   return (
     <section className="bg-backdrop px-6 py-16 sm:px-12 sm:py-24 lg:px-20 lg:py-28 2xl:px-30">
       {/* Heading */}
-      <div className="flex flex-col items-center text-center">
-        <p className="animate-rise text-xs font-medium uppercase tracking-[0.35em] text-gold">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+        variants={staggerParent}
+        className="flex flex-col items-center text-center"
+      >
+        <motion.p variants={staggerChild} className="text-xs font-medium uppercase tracking-[0.35em] text-gold">
           The Zenith Experience
-        </p>
-        <h2 className="animate-rise mt-6 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-normal leading-[1.1] tracking-[-0.02em] text-foreground">
+        </motion.p>
+        <motion.h2 variants={staggerChild} className="mt-6 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-normal leading-[1.1] tracking-[-0.02em] text-foreground">
           Intelligence That
           <br />
           <span className="text-gold">Enhances Every Moment.</span>
-        </h2>
-        <p className="animate-rise mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground">
+        </motion.h2>
+        <motion.p variants={staggerChild} className="mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground">
           Zenith blends seamlessly into your lifestyle, anticipating your needs
           <br className="hidden sm:block" /> and creating the perfect atmosphere—effortlessly.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       <div className="mx-auto mt-14 grid max-w-7xl grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.6fr)] lg:gap-14">
         {/* Pillars */}
         <div className="order-2 lg:order-1 lg:pt-2">
           {pillars.map(({ icon: Icon, title, line1, line2 }, i) => (
-            <div
+            <motion.div
               key={title}
-              className={`animate-rise flex items-start gap-5 py-6 ${
+              {...reveal(i * 0.09)}
+              className={`flex items-start gap-5 py-6 ${
                 i > 0 ? "border-t border-foreground/10" : ""
               }`}
-              style={{ animationDelay: `${100 + i * 90}ms` }}
             >
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border border-gold/30 bg-foreground/[0.03] text-gold">
                 <Icon className="h-6 w-6" strokeWidth={1.2} />
@@ -78,12 +86,12 @@ export function ExperienceSection() {
                   {line2}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
 
           <a
             href="#"
-            className="animate-rise group mt-6 inline-flex items-center gap-3 border-b border-gold/40 pb-3 text-sm text-gold transition-colors duration-300 hover:border-gold"
+            className="group mt-6 inline-flex items-center gap-3 border-b border-gold/40 pb-3 text-sm text-gold transition-colors duration-500 hover:border-gold"
           >
             Explore the Zenith Experience
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -91,7 +99,7 @@ export function ExperienceSection() {
         </div>
 
         {/* Visual */}
-        <div className="animate-rise relative order-1 overflow-hidden rounded-2xl ring-1 ring-foreground/[0.08] lg:order-2" style={{ animationDelay: "180ms" }}>
+        <motion.div {...fade(0.1)} className="relative order-1 overflow-hidden rounded-2xl ring-1 ring-foreground/[0.08] lg:order-2">
           <img
             src={roomImg}
             alt="Luxury dark living room at night with a wall-mounted Zenith control panel"
@@ -130,7 +138,7 @@ export function ExperienceSection() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

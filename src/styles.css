@@ -201,3 +201,74 @@
   scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
 }
+
+/* ---------- Cinematic motion layer ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.08); }
+}
+
+@utility float-slow {
+  animation: float-y 9s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@utility breathe-glow {
+  animation: breathe 11s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@utility soft-pulse {
+  animation: soft-pulse 4.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+/* Premium button feel: tiny lift on hover, gentle press on click */
+@utility btn-lift {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.9);
+  }
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+/* Soft focus glow on form fields */
+@utility focus-glow {
+  transition:
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  &:focus,
+  &:focus-visible {
+    box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float-slow,
+  .breathe-glow,
+  .soft-pulse { animation: none !important; }
+  .btn-lift:hover,
+  .btn-lift:active { transform: none !important; }
+}

@@ -14,6 +14,14 @@ const navLinks: { label: string; to: string }[] = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -29,8 +37,23 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-foreground/5 bg-hero-base/80 px-6 py-4 backdrop-blur-md sm:px-10 lg:relative lg:border-0 lg:bg-transparent lg:py-6 lg:backdrop-blur-none xl:px-14">
-        <a href="/" className="flex min-w-0 flex-col gap-1">
+      <motion.header
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className={`sticky top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 py-4 transition-[background-color,box-shadow,border-color,backdrop-filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-10 lg:relative lg:py-6 xl:px-14 ${
+          scrolled
+            ? "border-b border-foreground/10 bg-hero-base/80 shadow-[0_10px_30px_-20px_rgba(0,0,0,0.9)] backdrop-blur-md lg:border-0 lg:bg-transparent lg:shadow-none lg:backdrop-blur-none"
+            : "border-b border-transparent bg-transparent"
+        }`}
+      >
+        <motion.a
+          href="/"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="flex min-w-0 flex-col gap-1"
+        >
           <svg viewBox="0 0 60 16" className="h-3 w-14 text-gold" aria-hidden="true">
             <path
               d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3"
@@ -42,20 +65,26 @@ export function SiteHeader() {
           <span className="truncate font-display text-base font-semibold tracking-[0.22em] text-foreground sm:text-lg lg:text-xl">
             LUMIWAVES
           </span>
-        </a>
+        </motion.a>
 
         <nav
           aria-label="Primary"
           className="hidden items-center gap-8 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2"
         >
-          {navLinks.map((l) => (
-            <Link
+          {navLinks.map((l, i) => (
+            <motion.div
               key={l.label}
-              to={l.to}
-              className="relative text-[0.95rem] text-foreground/85 transition-colors duration-300 hover:text-gold focus-visible:text-gold focus-visible:outline-hidden after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
             >
-              {l.label}
-            </Link>
+              <Link
+                to={l.to}
+                className="relative text-[0.95rem] text-foreground/85 transition-colors duration-300 hover:text-gold focus-visible:text-gold focus-visible:outline-hidden after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] hover:after:w-full focus-visible:after:w-full"
+              >
+                {l.label}
+              </Link>
+            </motion.div>
           ))}
 
         </nav>
@@ -63,7 +92,7 @@ export function SiteHeader() {
         <div className="flex shrink-0 items-center gap-3">
           <Link
             to="/contact"
-            className="hidden rounded-full border border-foreground/25 px-6 py-3 text-sm text-foreground transition-all duration-300 hover:border-gold hover:text-gold sm:inline-flex"
+            className="btn-lift hidden rounded-full border border-foreground/25 px-6 py-3 text-sm text-foreground hover:border-gold hover:text-gold sm:inline-flex"
           >
             Book Experience
           </Link>
@@ -73,12 +102,13 @@ export function SiteHeader() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-foreground/25 text-foreground transition-colors duration-300 hover:border-gold hover:text-gold focus-visible:border-gold focus-visible:outline-hidden"
+            className="btn-lift grid h-12 w-12 shrink-0 place-items-center rounded-full border border-foreground/25 text-foreground hover:border-gold hover:text-gold focus-visible:border-gold focus-visible:outline-hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
-      </header>
+      </motion.header>
+
 
       <AnimatePresence>
         {open && (
