@@ -1,4 +1,6 @@
 import { Gem, ShieldCheck, Settings, Zap, Award, Headphones } from "lucide-react";
+import { motion } from "motion/react";
+import { reveal, fade, staggerParent, staggerChild, viewportOnce } from "@/lib/motion";
 import panelsImg from "@/assets/why-panels.jpg";
 
 const reasons = [
@@ -13,21 +15,27 @@ const reasons = [
 export function WhyZenithSection() {
   return (
     <section className="bg-hero-base/60 px-6 py-16 sm:px-12 sm:py-24 lg:px-20 lg:py-28 2xl:px-30">
-      <div className="flex flex-col items-center text-center">
-        <p className="animate-rise text-xs font-medium uppercase tracking-[0.35em] text-gold">Why Zenith</p>
-        <h2 className="animate-rise mt-6 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-normal leading-[1.1] tracking-[-0.02em] text-foreground">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+        variants={staggerParent}
+        className="flex flex-col items-center text-center"
+      >
+        <motion.p variants={staggerChild} className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Why Zenith</motion.p>
+        <motion.h2 variants={staggerChild} className="mt-6 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-normal leading-[1.1] tracking-[-0.02em] text-foreground">
           Engineered for <span className="text-gold">Excellence.</span>
           <br />
           Trusted for <span className="text-gold">Life.</span>
-        </h2>
-        <p className="animate-rise mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground">
+        </motion.h2>
+        <motion.p variants={staggerChild} className="mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground">
           At Zenith, every detail is crafted with precision to deliver unmatched
           <br className="hidden sm:block" /> reliability, security and elegance.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       <div className="mx-auto mt-14 grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-14">
-        <div className="animate-rise overflow-hidden rounded-2xl">
+        <motion.div {...fade(0.05)} className="overflow-hidden rounded-2xl">
           <img
             src={panelsImg}
             alt="Three Zenith black glass smart switch panels with gold bezels"
@@ -36,23 +44,24 @@ export function WhyZenithSection() {
             loading="lazy"
             className="h-full w-full object-cover"
           />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-x-0">
           {reasons.map(({ icon: Icon, title, body }, i) => (
-            <div
+            <motion.div
               key={title}
-              className={`animate-rise px-0 sm:px-5 ${
+              {...reveal(i * 0.07)}
+              whileHover={{ y: -4 }}
+              className={`px-0 sm:px-5 ${
                 i % 3 !== 0 ? "sm:border-l sm:border-foreground/10" : ""
               }`}
-              style={{ animationDelay: `${100 + i * 70}ms` }}
             >
               <Icon className="h-8 w-8 text-gold" strokeWidth={1.1} />
               <h3 className="mt-4 text-[0.95rem] font-medium text-foreground">{title}</h3>
               <p className="mt-2.5 text-[0.82rem] leading-relaxed text-muted-foreground">
                 {body}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

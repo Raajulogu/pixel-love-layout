@@ -1,6 +1,6 @@
 import { ArrowRight, ArrowUpRight, Gem, ShieldCheck, Settings, Headphones } from "lucide-react";
 import { motion } from "motion/react";
-import { reveal, EASE, staggerParent, staggerChild, viewportOnce } from "@/lib/motion";
+import { reveal, staggerParent, staggerChild, viewportOnce } from "@/lib/motion";
 import switchImg from "@/assets/prod-switch.jpg";
 import panelImg from "@/assets/prod-panel.jpg";
 import lockImg from "@/assets/prod-lock.jpg";
