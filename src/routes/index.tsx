@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "motion/react";
+import { EASE, staggerChild, staggerParent } from "@/lib/motion";
 import { ArrowRight, Play, Home, ShieldCheck, SlidersHorizontal, Gem } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { EcosystemSection } from "@/components/EcosystemSection";
