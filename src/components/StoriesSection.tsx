@@ -93,7 +93,7 @@ export function StoriesSection() {
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,1fr)]">
-          <div className="snap-rail -mx-6 flex snap-x gap-5 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0">
+          <div className="snap-rail -mx-6 flex snap-x snap-proximity gap-5 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0">
             {stories.map((s, i) => (
               <motion.article
                 key={s.name}

@@ -1,5 +1,7 @@
 import { ArrowRight, Linkedin, Instagram, Youtube, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { motion } from "motion/react";
+import { fade } from "@/lib/motion";
 
 const columns: { title: string; links: { label: string; to: string }[] }[] = [
   {
@@ -46,7 +48,10 @@ const socials = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-foreground/10 bg-hero-base px-6 pt-16 pb-8 text-center sm:px-12 sm:text-left lg:px-20 2xl:px-30">
+    <motion.footer
+      {...fade()}
+      className="border-t border-foreground/10 bg-hero-base px-6 pt-16 pb-8 text-center sm:px-12 sm:text-left lg:px-20 2xl:px-30"
+    >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)_1.2fr] lg:gap-10">
         <div className="min-w-0">
           <div className="flex items-center justify-center gap-4 sm:justify-start">
@@ -113,7 +118,7 @@ export function SiteFooter() {
           </ul>
           <Link
             to="/contact"
-            className="group mt-7 inline-flex items-center gap-3 rounded-full border border-gold/60 px-7 py-3.5 text-[0.95rem] text-gold transition-colors duration-300 hover:bg-gold hover:text-hero-base"
+            className="btn-lift group mt-7 inline-flex items-center gap-3 rounded-full border border-gold/60 px-7 py-3.5 text-[0.95rem] text-gold hover:bg-gold hover:text-hero-base"
           >
             Book a Free Consultation
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -130,6 +135,6 @@ export function SiteFooter() {
           <a href="#" className="transition-colors duration-300 hover:text-gold">Terms of Service</a>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
