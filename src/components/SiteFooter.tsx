@@ -9,34 +9,35 @@ const columns: { title: string; links: { label: string; to: string }[] }[] = [
     links: [
       { label: "Home", to: "/" },
       { label: "About Lumiwaves", to: "/about" },
-      { label: "Zenith Products", to: "/" },
-      { label: "Smart Ecosystem", to: "/" },
-      { label: "Experience Center", to: "/contact" },
+      { label: "Zenith Ecosystem", to: "/zenith" },
+      { label: "Services", to: "/services" },
+      { label: "Projects", to: "/projects" },
       { label: "Contact", to: "/contact" },
     ],
   },
   {
     title: "Zenith",
     links: [
-      { label: "Smart Switches", to: "/" },
-      { label: "Touch Panels", to: "/" },
-      { label: "Smart Locks", to: "/" },
-      { label: "Smart Lighting", to: "/" },
-      { label: "Automation Hub", to: "/" },
-      { label: "All Products", to: "/" },
+      { label: "Smart Switches", to: "/zenith" },
+      { label: "Touch Panels", to: "/zenith" },
+      { label: "Smart Locks", to: "/zenith" },
+      { label: "Smart Lighting", to: "/zenith" },
+      { label: "Smart Curtains", to: "/zenith" },
+      { label: "Sensors", to: "/zenith" },
     ],
   },
   {
     title: "Support",
     links: [
-      { label: "Installation Process", to: "/about" },
-      { label: "User Guides", to: "/contact" },
-      { label: "Warranty", to: "/contact" },
-      { label: "Service & Support", to: "/contact" },
-      { label: "FAQs", to: "/contact" },
+      { label: "Installation Process", to: "/services" },
+      { label: "Warranty", to: "/faq" },
+      { label: "Service & Support", to: "/services" },
+      { label: "FAQs", to: "/faq" },
+      { label: "Experience Center", to: "/contact" },
     ],
   },
 ];
+
 
 
 const socials = [
