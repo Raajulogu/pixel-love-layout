@@ -4,12 +4,14 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const navLinks: { label: string; to: string }[] = [
-  { label: "Zenith", to: "/" },
-  { label: "Solutions", to: "/" },
-  { label: "Experience", to: "/" },
+  { label: "Zenith", to: "/zenith" },
+  { label: "Services", to: "/services" },
+  { label: "Projects", to: "/projects" },
   { label: "About Us", to: "/about" },
+  { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
 ];
+
 
 
 export function SiteHeader() {
