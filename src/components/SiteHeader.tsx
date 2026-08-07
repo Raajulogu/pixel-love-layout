@@ -71,7 +71,7 @@ export function SiteHeader() {
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-8 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2"
+          className="hidden items-center gap-6 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2 2xl:gap-8"
         >
           {navLinks.map((l, i) => (
             <motion.div
