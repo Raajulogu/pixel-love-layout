@@ -4,12 +4,14 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const navLinks: { label: string; to: string }[] = [
-  { label: "Zenith", to: "/" },
-  { label: "Solutions", to: "/" },
-  { label: "Experience", to: "/" },
+  { label: "Zenith", to: "/zenith" },
+  { label: "Services", to: "/services" },
+  { label: "Projects", to: "/projects" },
   { label: "About Us", to: "/about" },
+  { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
 ];
+
 
 
 export function SiteHeader() {
@@ -69,7 +71,7 @@ export function SiteHeader() {
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-8 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2"
+          className="hidden items-center gap-6 justify-self-center xl:flex xl:absolute xl:left-1/2 xl:-translate-x-1/2 2xl:gap-8"
         >
           {navLinks.map((l, i) => (
             <motion.div
