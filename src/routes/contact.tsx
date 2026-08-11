@@ -5,6 +5,7 @@ import {
   Mail,
   MessageCircle,
   MapPin,
+  Home,
   Clock4,
   BadgeCheck,
   Headset,
