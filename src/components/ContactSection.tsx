@@ -1,19 +1,16 @@
 import {
-  ArrowRight,
   Headset,
   Home,
   Sparkles,
-  User,
-  Phone,
-  Mail,
-  MessageSquare,
   BadgeCheck,
   Clock4,
   Heart,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { reveal, fade, staggerParent, staggerChild, viewportOnce } from "@/lib/motion";
+import { ContactForm } from "@/components/ContactForm";
 import roomImg from "@/assets/zenith-room.jpg";
+
 
 const helpItems = [
   {
@@ -121,76 +118,20 @@ export function ContactSection() {
             </ul>
 
             {/* Form card */}
-            <motion.form
-              onSubmit={(e) => e.preventDefault()}
-              {...reveal(0.1, 0.7)}
-              className="rounded-3xl border border-foreground/12 bg-hero-base/80 p-6 backdrop-blur-xs sm:p-8"
-            >
-              <h3 className="font-display text-xl font-semibold text-foreground">
-                Send us a Message
-              </h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                We&apos;ll get back to you within 24 hours.
-              </p>
+            <motion.div {...reveal(0.1, 0.7)}>
+              <ContactForm
+                title="Send us a Message"
+                submitLabel="Get in Touch"
+                interestLabel="I'm interested in"
+                interestOptions={[
+                  "Smart Switches",
+                  "Touch Panels",
+                  "Smart Locks",
+                  "Full Home Automation",
+                ]}
+              />
+            </motion.div>
 
-              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="relative">
-                  <User className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <input aria-label="Your Name" placeholder="Your Name" className={fieldBase} />
-                </div>
-                <div className="relative">
-                  <Phone className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <input
-                    aria-label="Phone Number"
-                    placeholder="Phone Number"
-                    className={fieldBase}
-                  />
-                </div>
-              </div>
-
-              <div className="relative mt-4">
-                <Mail className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <input
-                  aria-label="Email Address"
-                  type="email"
-                  placeholder="Email Address"
-                  className={fieldBase}
-                />
-              </div>
-
-              <div className="relative mt-4">
-                <Home className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <select
-                  aria-label="I'm interested in"
-                  defaultValue=""
-                  className={`${fieldBase} appearance-none pr-10 text-muted-foreground`}
-                >
-                  <option value="">I&apos;m interested in</option>
-                  <option>Smart Switches</option>
-                  <option>Touch Panels</option>
-                  <option>Smart Locks</option>
-                  <option>Full Home Automation</option>
-                </select>
-              </div>
-
-              <div className="relative mt-4">
-                <MessageSquare className="pointer-events-none absolute left-4 top-5 h-4 w-4 text-muted-foreground" />
-                <textarea
-                  aria-label="Tell us about your requirements"
-                  rows={4}
-                  placeholder="Tell us about your requirements..."
-                  className="w-full resize-none rounded-xl border border-foreground/12 bg-foreground/[0.03] py-4 pl-12 pr-4 text-[0.95rem] text-foreground placeholder:text-muted-foreground/80 outline-hidden focus-glow focus:border-gold/60 focus:bg-foreground/[0.05]"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="btn-lift group mt-5 inline-flex h-14 min-h-12 w-full items-center justify-center gap-3 rounded-xl bg-linear-to-r from-gold to-gold/80 text-[0.95rem] font-medium text-hero-base"
-              >
-                Get in Touch
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
-            </motion.form>
           </div>
         </div>
       </div>
