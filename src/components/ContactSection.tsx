@@ -37,8 +37,8 @@ const assurances = [
   { icon: Heart, title: "Smarter, Greener Tomorrow", body: "For a better living experience" },
 ];
 
-const fieldBase =
-  "h-14 w-full rounded-xl border border-foreground/12 bg-foreground/[0.03] pl-12 pr-4 text-[0.95rem] text-foreground placeholder:text-muted-foreground/80 outline-hidden focus-glow focus:border-gold/60 focus:bg-foreground/[0.05]";
+
+
 
 export function ContactSection() {
   return (
