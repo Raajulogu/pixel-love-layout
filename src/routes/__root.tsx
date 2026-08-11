@@ -31,19 +31,19 @@ function NotFoundComponent() {
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               to="/"
-              className="btn-lift inline-flex min-h-14 w-full items-center justify-center rounded-full bg-foreground px-8 text-[0.95rem] font-medium text-hero-base sm:w-auto"
+              className="btn-lift inline-flex min-h-14 w-full items-center justify-center whitespace-nowrap rounded-full bg-foreground px-8 text-[0.95rem] font-medium text-hero-base sm:w-auto"
             >
               Back to Home
             </Link>
             <Link
               to="/zenith"
-              className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-foreground/20 px-8 text-[0.95rem] text-foreground transition-colors duration-300 hover:border-gold hover:text-gold sm:w-auto"
+              className="inline-flex min-h-14 w-full items-center justify-center whitespace-nowrap rounded-full border border-foreground/20 px-8 text-[0.95rem] text-foreground transition-colors duration-300 hover:border-gold hover:text-gold sm:w-auto"
             >
               Explore Zenith
             </Link>
             <Link
               to="/contact"
-              className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-gold/50 px-8 text-[0.95rem] text-gold transition-colors duration-300 hover:bg-gold hover:text-hero-base sm:w-auto"
+              className="inline-flex min-h-14 w-full items-center justify-center whitespace-nowrap rounded-full border border-gold/50 px-8 text-[0.95rem] text-gold transition-colors duration-300 hover:bg-gold hover:text-hero-base sm:w-auto"
             >
               Contact Us
             </Link>
