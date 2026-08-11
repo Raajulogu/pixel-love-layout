@@ -1,7 +1,16 @@
-import { ArrowRight, Linkedin, Instagram, Youtube, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
+import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { fade } from "@/lib/motion";
+import {
+  ADDRESS_LINES,
+  EMAIL,
+  LEGAL_LINKS,
+  MAIL_HREF,
+  PHONE_DISPLAY,
+  SOCIAL_LINKS,
+  TEL_HREF,
+} from "@/lib/site";
 
 const columns: { title: string; links: { label: string; to: string }[] }[] = [
   {
@@ -12,6 +21,7 @@ const columns: { title: string; links: { label: string; to: string }[] }[] = [
       { label: "Zenith Ecosystem", to: "/zenith" },
       { label: "Services", to: "/services" },
       { label: "Projects", to: "/projects" },
+      { label: "FAQ", to: "/faq" },
       { label: "Contact", to: "/contact" },
     ],
   },
@@ -38,15 +48,6 @@ const columns: { title: string; links: { label: string; to: string }[] }[] = [
   },
 ];
 
-
-
-const socials = [
-  { icon: Linkedin, label: "LinkedIn" },
-  { icon: Instagram, label: "Instagram" },
-  { icon: Youtube, label: "YouTube" },
-  { icon: MessageCircle, label: "WhatsApp" },
-];
-
 export function SiteFooter() {
   return (
     <motion.footer
@@ -68,23 +69,26 @@ export function SiteFooter() {
             We create intelligent living experiences that blend technology, design and comfort — for
             homes that deserve more.
           </p>
-          <div className="mt-8 flex items-center justify-center gap-4 sm:justify-start">
-            {socials.map(({ icon: Icon, label }) => (
-              <a
-                key={label}
-                href="#"
-                aria-label={label}
-                className="grid h-12 w-12 place-items-center rounded-full border border-foreground/15 text-foreground/80 transition-colors duration-300 hover:border-gold hover:text-gold"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
+          {SOCIAL_LINKS.length > 0 && (
+            <div className="mt-8 flex items-center justify-center gap-4 sm:justify-start">
+              {SOCIAL_LINKS.map(({ label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center rounded-full border border-foreground/15 px-5 text-sm text-foreground/80 transition-colors duration-300 hover:border-gold hover:text-gold"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         {columns.map((col) => (
-          <nav key={col.title} className="min-w-0 lg:border-l lg:border-foreground/10 lg:pl-8">
-            <h3 className="font-display text-lg font-medium text-foreground">{col.title}</h3>
+          <nav key={col.title} aria-label={col.title} className="min-w-0 lg:border-l lg:border-foreground/10 lg:pl-8">
+            <h2 className="font-display text-lg font-medium text-foreground">{col.title}</h2>
             <ul className="mt-5 space-y-3">
               {col.links.map((l) => (
                 <li key={l.label}>
@@ -96,25 +100,28 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
-
             </ul>
           </nav>
         ))}
 
         <div className="min-w-0">
-          <h3 className="font-display text-lg font-medium text-foreground">Get in Touch</h3>
+          <h2 className="font-display text-lg font-medium text-foreground">Get in Touch</h2>
           <ul className="mt-5 space-y-4 text-[0.95rem] text-muted-foreground">
             <li className="flex items-start justify-center gap-3 sm:justify-start">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              Pondicherry, India
+              <span>{ADDRESS_LINES.join(", ")}</span>
             </li>
             <li className="flex items-start justify-center gap-3 sm:justify-start">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              +91 98765 43210
+              <a href={TEL_HREF} className="transition-colors duration-300 hover:text-gold">
+                {PHONE_DISPLAY}
+              </a>
             </li>
             <li className="flex items-start justify-center gap-3 sm:justify-start">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              hello@lumiwaves.in
+              <a href={MAIL_HREF} className="break-all transition-colors duration-300 hover:text-gold">
+                {EMAIL}
+              </a>
             </li>
           </ul>
           <Link
@@ -124,17 +131,23 @@ export function SiteFooter() {
             Book a Free Consultation
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-
         </div>
       </div>
 
       <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 border-t border-foreground/10 pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2024 Lumiwaves. All rights reserved.</p>
-        <div className="flex items-center justify-center gap-4 sm:justify-start">
-          <a href="#" className="transition-colors duration-300 hover:text-gold">Privacy Policy</a>
-          <span className="text-foreground/20">|</span>
-          <a href="#" className="transition-colors duration-300 hover:text-gold">Terms of Service</a>
-        </div>
+        <p>© {new Date().getFullYear()} Lumiwaves. All rights reserved.</p>
+        {LEGAL_LINKS.length > 0 && (
+          <div className="flex items-center justify-center gap-4 sm:justify-start">
+            {LEGAL_LINKS.map((l, i) => (
+              <span key={l.label} className="flex items-center gap-4">
+                {i > 0 && <span className="text-foreground/20">|</span>}
+                <Link to={l.to} className="transition-colors duration-300 hover:text-gold">
+                  {l.label}
+                </Link>
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </motion.footer>
   );

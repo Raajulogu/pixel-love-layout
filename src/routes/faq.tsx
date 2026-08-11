@@ -23,7 +23,27 @@ export const Route = createFileRoute("/faq")({
         content: "Everything you might ask before automating your home with Zenith.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pixel-love-layout.lovable.app/faq" },
+      { property: "og:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
+      { name: "twitter:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://pixel-love-layout.lovable.app/faq" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: groups.flatMap((g) =>
+            g.items.map((i) => ({
+              "@type": "Question",
+              name: i.q,
+              acceptedAnswer: { "@type": "Answer", text: i.a },
+            })),
+          ),
+        }),
+      },
     ],
   }),
   component: FaqPage,

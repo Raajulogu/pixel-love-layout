@@ -52,8 +52,12 @@ export const Route = createFileRoute("/zenith")({
           "One ecosystem. Every room. Zenith turns a house into a home that anticipates you.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pixel-love-layout.lovable.app/zenith" },
+      { property: "og:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
+      { name: "twitter:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://pixel-love-layout.lovable.app/zenith" }],
   }),
   component: ZenithPage,
 });

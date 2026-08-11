@@ -28,8 +28,12 @@ export const Route = createFileRoute("/")({
         content: "The intelligence behind every modern home. Premium smart automation by Lumiwaves.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pixel-love-layout.lovable.app/" },
+      { property: "og:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
+      { name: "twitter:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://pixel-love-layout.lovable.app/" }],
   }),
   component: Index,
 });
@@ -64,6 +68,7 @@ function Index() {
               alt="Zenith smart control panel mounted on a dark wall"
               width={912}
               height={1200}
+              fetchPriority="high"
               className="float-slow h-full w-full animate-slow-zoom object-cover brightness-110"
             />
 

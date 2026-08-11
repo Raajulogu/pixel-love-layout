@@ -49,13 +49,13 @@ export function SiteHeader() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <motion.a
-          href="/"
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="flex min-w-0 flex-col gap-1"
+          className="min-w-0"
         >
+        <Link to="/" aria-label="Lumiwaves — home" className="flex min-w-0 flex-col gap-1">
           <svg viewBox="0 0 60 16" className="h-3 w-14 text-gold" aria-hidden="true">
             <path
               d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3"
@@ -67,7 +67,8 @@ export function SiteHeader() {
           <span className="truncate font-display text-base font-semibold tracking-[0.22em] text-foreground sm:text-lg lg:text-xl">
             LUMIWAVES
           </span>
-        </motion.a>
+        </Link>
+        </motion.div>
 
         <nav
           aria-label="Primary"
@@ -103,6 +104,7 @@ export function SiteHeader() {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
             className="btn-lift grid h-12 w-12 shrink-0 place-items-center rounded-full border border-foreground/25 text-foreground hover:border-gold hover:text-gold focus-visible:border-gold focus-visible:outline-hidden"
           >
@@ -124,6 +126,7 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
           >
             <motion.nav
+              id="mobile-menu"
               aria-label="Mobile"
               initial={{ y: -24, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
