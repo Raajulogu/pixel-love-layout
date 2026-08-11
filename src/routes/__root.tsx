@@ -9,28 +9,48 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { MotionConfig } from "motion/react";
+
 import appCss from "../styles.css?url";
+import { ADDRESS_LINES, EMAIL, PHONE_E164, SITE_URL } from "../lib/site";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
+    <main className="min-h-dvh bg-backdrop p-3 sm:p-5 lg:p-6">
+      <section className="relative flex min-h-[calc(100dvh-1.5rem)] items-center justify-center overflow-hidden rounded-[2rem] bg-hero-base px-6 py-20 text-center sm:px-12">
+        <div className="max-w-lg">
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">404</p>
+          <h1 className="mt-6 font-display text-[clamp(2.2rem,8vw,4rem)] font-semibold leading-[1.03] tracking-[-0.02em] text-foreground">
+            This page isn&apos;t <span className="text-gold">part of the system.</span>
+          </h1>
+          <p className="mx-auto mt-5 max-w-md text-[1rem] leading-relaxed text-muted-foreground">
+            The page you were looking for has moved or never existed. Let&apos;s get you back to
+            something beautiful.
+          </p>
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              to="/"
+              className="btn-lift inline-flex min-h-14 w-full items-center justify-center rounded-full bg-foreground px-8 text-[0.95rem] font-medium text-hero-base sm:w-auto"
+            >
+              Back to Home
+            </Link>
+            <Link
+              to="/zenith"
+              className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-foreground/20 px-8 text-[0.95rem] text-foreground transition-colors duration-300 hover:border-gold hover:text-gold sm:w-auto"
+            >
+              Explore Zenith
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-gold/50 px-8 text-[0.95rem] text-gold transition-colors duration-300 hover:bg-gold hover:text-hero-base sm:w-auto"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
@@ -77,14 +97,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Lumiwaves — Zenith Smart Home Automation" },
+      {
+        name: "description",
+        content:
+          "Lumiwaves designs and installs Zenith, a premium smart home ecosystem of switches, panels, lighting, curtains, locks and sensors.",
+      },
+      { name: "author", content: "Lumiwaves" },
+      { property: "og:site_name", content: "Lumiwaves" },
+      { property: "og:title", content: "Lumiwaves — Zenith Smart Home Automation" },
+      {
+        property: "og:description",
+        content: "Premium smart living, designed and installed end to end by Lumiwaves.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: `${SITE_URL}/og-lumiwaves.jpg` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:image", content: `${SITE_URL}/og-lumiwaves.jpg` },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -99,7 +128,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
-
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Lumiwaves",
+          url: SITE_URL,
+          description:
+            "Lumiwaves designs and installs Zenith, a premium smart home automation ecosystem.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: ADDRESS_LINES[0],
+            addressLocality: "Pondicherry",
+            addressCountry: "IN",
+          },
+          telephone: PHONE_E164,
+          email: EMAIL,
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -126,8 +175,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <MotionConfig reducedMotion="user">
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </MotionConfig>
     </QueryClientProvider>
 
   );
