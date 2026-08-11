@@ -68,6 +68,7 @@ function Index() {
               alt="Zenith smart control panel mounted on a dark wall"
               width={912}
               height={1200}
+              fetchPriority="high"
               className="float-slow h-full w-full animate-slow-zoom object-cover brightness-110"
             />
 

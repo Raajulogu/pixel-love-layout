@@ -29,6 +29,22 @@ export const Route = createFileRoute("/faq")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://pixel-love-layout.lovable.app/faq" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: groups.flatMap((g) =>
+            g.items.map((i) => ({
+              "@type": "Question",
+              name: i.q,
+              acceptedAnswer: { "@type": "Answer", text: i.a },
+            })),
+          ),
+        }),
+      },
+    ],
   }),
   component: FaqPage,
 });
