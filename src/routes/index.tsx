@@ -28,8 +28,12 @@ export const Route = createFileRoute("/")({
         content: "The intelligence behind every modern home. Premium smart automation by Lumiwaves.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pixel-love-layout.lovable.app/" },
+      { property: "og:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
+      { name: "twitter:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://pixel-love-layout.lovable.app/" }],
   }),
   component: Index,
 });

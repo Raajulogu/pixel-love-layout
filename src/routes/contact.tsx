@@ -35,8 +35,12 @@ export const Route = createFileRoute("/contact")({
         content: "Book a free consultation and start your Zenith smart living journey.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pixel-love-layout.lovable.app/contact" },
+      { property: "og:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
+      { name: "twitter:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://pixel-love-layout.lovable.app/contact" }],
   }),
   component: ContactPage,
 });

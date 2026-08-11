@@ -41,8 +41,12 @@ export const Route = createFileRoute("/services")({
         content: "One team, one accountability — consultation, design, installation, training and support.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pixel-love-layout.lovable.app/services" },
+      { property: "og:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
+      { name: "twitter:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://pixel-love-layout.lovable.app/services" }],
   }),
   component: ServicesPage,
 });

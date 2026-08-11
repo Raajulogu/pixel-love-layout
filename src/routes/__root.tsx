@@ -111,9 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Premium smart living, designed and installed end to end by Lumiwaves.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: `${SITE_URL}/og-lumiwaves.jpg` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: `${SITE_URL}/og-lumiwaves.jpg` },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

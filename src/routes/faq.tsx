@@ -23,8 +23,12 @@ export const Route = createFileRoute("/faq")({
         content: "Everything you might ask before automating your home with Zenith.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pixel-love-layout.lovable.app/faq" },
+      { property: "og:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
+      { name: "twitter:image", content: "https://pixel-love-layout.lovable.app/og-lumiwaves.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://pixel-love-layout.lovable.app/faq" }],
   }),
   component: FaqPage,
 });
