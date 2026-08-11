@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ContactForm } from "@/components/ContactForm";
+import { TEL_HREF, MAIL_HREF, WHATSAPP_HREF, MAPS_HREF, PHONE_DISPLAY, EMAIL } from "@/lib/site";
 import roomImg from "@/assets/zenith-room.jpg";
 import expImg from "@/assets/exp-room.jpg";
 
@@ -42,9 +44,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 const options = [
-  { icon: Phone, label: "Call Us", value: "+91 98765 43210", note: "Mon–Sat, 9am – 7pm", href: "tel:+919876543210" },
-  { icon: Mail, label: "Email Us", value: "hello@lumiwaves.in", note: "Reply within 24 hours", href: "mailto:hello@lumiwaves.in" },
-  { icon: MessageCircle, label: "WhatsApp", value: "Chat with a specialist", note: "Fastest response", href: "#" },
+  { icon: Phone, label: "Call Us", value: PHONE_DISPLAY, note: "Mon–Sat, 9am – 7pm", href: TEL_HREF },
+  { icon: Mail, label: "Email Us", value: EMAIL, note: "Reply within 24 hours", href: MAIL_HREF },
+  { icon: MessageCircle, label: "WhatsApp", value: "Chat with a specialist", note: "Fastest response", href: WHATSAPP_HREF },
   { icon: MapPin, label: "Visit Us", value: "Pondicherry, India", note: "Experience center", href: "#office" },
 ];
 
@@ -55,9 +57,6 @@ const trust = [
   { icon: BadgeCheck, title: "Premium Installation", body: "Our own certified install team." },
   { icon: ShieldCheck, title: "Reliable Support", body: "10 year warranty, lifetime care." },
 ];
-
-const fieldBase =
-  "h-14 min-h-12 w-full rounded-xl border border-foreground/12 bg-foreground/[0.03] pl-12 pr-4 text-[0.95rem] text-foreground placeholder:text-muted-foreground/80 outline-hidden transition-colors duration-300 focus:border-gold/60 focus:bg-foreground/[0.05]";
 
 function ContactPage() {
   return (
@@ -98,11 +97,11 @@ function ContactPage() {
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
                 <a
-                  href="tel:+919876543210"
+                  href={TEL_HREF}
                   className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full border border-foreground/20 px-8 text-[0.95rem] text-foreground transition-colors duration-300 hover:border-gold hover:text-gold active:scale-[0.98] sm:w-auto"
                 >
                   <Phone className="h-4 w-4" />
-                  +91 98765 43210
+                  {PHONE_DISPLAY}
                 </a>
               </div>
             </div>
@@ -169,64 +168,14 @@ function ContactPage() {
             </div>
           </div>
 
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="animate-rise rounded-3xl border border-foreground/12 bg-hero-base/80 p-6 backdrop-blur-xs sm:p-8"
-            style={{ animationDelay: "120ms" }}
-          >
-            <h3 className="font-display text-xl font-semibold text-foreground">Book a Consultation</h3>
-            <p className="mt-1 text-sm text-muted-foreground">We&apos;ll get back to you within 24 hours.</p>
-
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="relative">
-                <User className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <input aria-label="Your Name" placeholder="Your Name" className={fieldBase} />
-              </div>
-              <div className="relative">
-                <Phone className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <input aria-label="Phone Number" placeholder="Phone Number" className={fieldBase} />
-              </div>
-            </div>
-
-            <div className="relative mt-4">
-              <Mail className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <input aria-label="Email Address" type="email" placeholder="Email Address" className={fieldBase} />
-            </div>
-
-            <div className="relative mt-4">
-              <Home className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <select
-                aria-label="Project Type"
-                defaultValue=""
-                className={`${fieldBase} appearance-none pr-10 text-muted-foreground`}
-              >
-                <option value="">Project Type</option>
-                <option>New Home</option>
-                <option>Renovation</option>
-                <option>Apartment</option>
-                <option>Villa</option>
-                <option>Commercial Space</option>
-              </select>
-            </div>
-
-            <div className="relative mt-4">
-              <MessageSquare className="pointer-events-none absolute left-4 top-5 h-4 w-4 text-muted-foreground" />
-              <textarea
-                aria-label="Message"
-                rows={4}
-                placeholder="Tell us about your space..."
-                className="w-full resize-none rounded-xl border border-foreground/12 bg-foreground/[0.03] py-4 pl-12 pr-4 text-[0.95rem] text-foreground placeholder:text-muted-foreground/80 outline-hidden transition-colors duration-300 focus:border-gold/60 focus:bg-foreground/[0.05]"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="group mt-5 inline-flex h-14 min-h-12 w-full items-center justify-center gap-3 rounded-xl bg-linear-to-r from-gold to-gold/80 text-[0.95rem] font-medium text-hero-base transition-transform duration-300 hover:-translate-y-0.5 active:scale-[0.99]"
-            >
-              Book Consultation
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
-          </form>
+          <ContactForm
+            className="animate-rise"
+            title="Book a Consultation"
+            submitLabel="Book Consultation"
+            interestLabel="Project Type"
+            interestOptions={["New Home", "Renovation", "Apartment", "Villa", "Commercial Space"]}
+            messagePlaceholder="Tell us about your space..."
+          />
         </div>
       </section>
 
@@ -280,12 +229,14 @@ function ContactPage() {
                   <Phone className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.3} />
                   <span>
                     <span className="block text-foreground">Reception</span>
-                    +91 98765 43210
+                    <a href={TEL_HREF} className="transition-colors hover:text-gold">{PHONE_DISPLAY}</a>
                   </span>
                 </li>
               </ul>
               <a
-                href="#"
+                href={MAPS_HREF}
+                target="_blank"
+                rel="noreferrer"
                 className="group mt-9 inline-flex min-h-14 items-center gap-3 rounded-full border border-gold/60 px-7 text-[0.95rem] text-gold transition-colors duration-300 hover:bg-gold hover:text-hero-base"
               >
                 <Navigation className="h-4 w-4" />
