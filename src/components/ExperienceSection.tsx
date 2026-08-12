@@ -189,45 +189,103 @@ export function ExperienceSection() {
 
         {/* Visual */}
         <motion.div {...fade(0.1)} className="relative order-1 overflow-hidden rounded-2xl ring-1 ring-foreground/[0.08] lg:order-2">
-          <img
-            src={roomImg}
-            alt="Luxury dark living room at night with a wall-mounted Zenith control panel"
-            width={1600}
-            height={1008}
-            loading="lazy"
-            className="h-full w-full object-cover"
-          />
+          <div className="relative">
+            <motion.img
+              src={roomImg}
+              alt="Luxury living room with a wall-mounted Zenith control panel, lighting adapting to the selected scene"
+              width={1600}
+              height={1008}
+              loading="lazy"
+              animate={{ filter: scene.filter }}
+              transition={SCENE_TRANSITION}
+              className="h-full w-full object-cover"
+            />
+
+            {/* Ambient light layers */}
+            <motion.div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 mix-blend-soft-light"
+              animate={{ opacity: scene.washOpacity, background: scene.wash }}
+              transition={SCENE_TRANSITION}
+            />
+            <motion.div
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-[15%] right-[4%] h-[70%] w-[45%] blur-2xl"
+              animate={{ opacity: scene.windowOpacity, background: scene.window }}
+              transition={SCENE_TRANSITION}
+            />
+            <motion.div
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-[18%] left-[8%] h-[45%] w-[38%] blur-3xl"
+              animate={{ opacity: scene.lampOpacity, background: scene.lamp }}
+              transition={SCENE_TRANSITION}
+            />
+          </div>
 
           {/* Scene bar */}
           <div className="absolute inset-x-4 bottom-4 rounded-xl border border-foreground/10 bg-background/70 px-5 py-4 backdrop-blur-md sm:inset-x-6 sm:bottom-6 sm:px-7 sm:py-5">
-            <p className="text-[0.8rem] text-muted-foreground">Scenes for Every Moment</p>
-            <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-2">
-              {scenes.map(({ icon: Icon, label, active }) => (
-                <button
-                  key={label}
-                  className="group flex flex-col items-center gap-2 text-center"
+            <div className="flex min-h-10 flex-col gap-1">
+              <p className="text-[0.8rem] text-muted-foreground">Scenes for Every Moment</p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={scene.label}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.35, ease: EASE }}
+                  className="text-[0.78rem] leading-snug text-foreground/80"
                 >
-                  <span
-                    className={`grid h-11 w-11 place-items-center rounded-full transition-colors duration-300 ${
-                      active
-                        ? "border border-gold/60 bg-gold/10 text-gold"
-                        : "text-foreground/70 group-hover:text-gold"
-                    }`}
+                  {scene.description}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+            <div
+              role="radiogroup"
+              aria-label="Zenith scenes"
+              className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-2"
+            >
+              {scenes.map(({ icon: Icon, label }, i) => {
+                const isActive = i === active;
+                return (
+                  <button
+                    key={label}
+                    type="button"
+                    role="radio"
+                    aria-checked={isActive}
+                    aria-label={`${label} scene`}
+                    onClick={() => setActive(i)}
+                    className="group flex min-h-12 flex-col items-center gap-2 rounded-lg text-center outline-none transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-[0.97]"
                   >
-                    <Icon className="h-5 w-5" strokeWidth={1.2} />
-                  </span>
-                  <span
-                    className={`text-[0.7rem] sm:text-xs ${
-                      active ? "text-gold" : "text-muted-foreground"
-                    }`}
-                  >
-                    {label}
-                  </span>
-                </button>
-              ))}
+                    <span
+                      className={`grid h-11 w-11 place-items-center rounded-full transition-all duration-500 ${
+                        isActive
+                          ? "border border-gold/60 bg-gold/10 text-gold shadow-[0_0_22px_-6px_rgba(201,168,76,0.8)]"
+                          : "text-foreground/70 group-hover:text-gold"
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" strokeWidth={1.2} />
+                    </span>
+                    <span
+                      className={`relative text-[0.7rem] transition-colors duration-300 sm:text-xs ${
+                        isActive ? "text-gold" : "text-muted-foreground"
+                      }`}
+                    >
+                      {label}
+                      {isActive && (
+                        <motion.span
+                          layoutId="scene-underline"
+                          className="absolute -bottom-1 left-0 h-px w-full bg-gold"
+                          transition={{ duration: 0.45, ease: EASE }}
+                        />
+                      )}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
