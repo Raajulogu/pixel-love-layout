@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { ArrowRight, Lightbulb, Blinds, ShieldCheck, Zap, Sunrise, Laptop, Armchair, Monitor, Wine, Moon } from "lucide-react";
-import { motion } from "motion/react";
-import { reveal, fade, staggerParent, staggerChild, viewportOnce } from "@/lib/motion";
+import { AnimatePresence, motion } from "motion/react";
+import { reveal, fade, staggerParent, staggerChild, viewportOnce, EASE } from "@/lib/motion";
 import roomImg from "@/assets/exp-room.jpg";
 
 const pillars = [
@@ -30,16 +31,104 @@ const pillars = [
   },
 ];
 
-const scenes = [
-  { icon: Sunrise, label: "Morning" },
-  { icon: Laptop, label: "Work" },
-  { icon: Armchair, label: "Relax", active: true },
-  { icon: Monitor, label: "Movie" },
-  { icon: Wine, label: "Dinner" },
-  { icon: Moon, label: "Night" },
+type Scene = {
+  icon: typeof Sunrise;
+  label: string;
+  description: string;
+  /** filter applied to the room image */
+  filter: string;
+  /** full-frame color wash */
+  wash: string;
+  washOpacity: number;
+  /** localized window / daylight glow */
+  window: string;
+  windowOpacity: number;
+  /** warm interior lamp glow */
+  lamp: string;
+  lampOpacity: number;
+};
+
+const scenes: Scene[] = [
+  {
+    icon: Sunrise,
+    label: "Morning",
+    description: "Zenith prepares your home — curtains ease open and warm daylight fills the room.",
+    filter: "brightness(1.14) saturate(1.05) contrast(0.98)",
+    wash: "linear-gradient(120deg, rgba(255,196,120,0.22), rgba(255,236,200,0.08) 55%, transparent)",
+    washOpacity: 1,
+    window: "radial-gradient(closest-side, rgba(255,226,170,0.55), transparent)",
+    windowOpacity: 1,
+    lamp: "radial-gradient(closest-side, rgba(255,190,120,0.28), transparent)",
+    lampOpacity: 0.45,
+  },
+  {
+    icon: Laptop,
+    label: "Work",
+    description: "Zenith creates the right environment — clean, neutral light tuned for focus.",
+    filter: "brightness(1.16) saturate(0.92) contrast(1.04)",
+    wash: "linear-gradient(120deg, rgba(214,232,255,0.16), rgba(255,255,255,0.06) 60%, transparent)",
+    washOpacity: 1,
+    window: "radial-gradient(closest-side, rgba(226,240,255,0.45), transparent)",
+    windowOpacity: 0.9,
+    lamp: "radial-gradient(closest-side, rgba(235,244,255,0.22), transparent)",
+    lampOpacity: 0.5,
+  },
+  {
+    icon: Armchair,
+    label: "Relax",
+    description: "Zenith changes the atmosphere — soft amber light, daylight gently dimmed.",
+    filter: "brightness(0.94) saturate(1.12) contrast(1.02)",
+    wash: "linear-gradient(120deg, rgba(255,150,60,0.16), rgba(120,60,20,0.14) 70%, rgba(20,12,6,0.22))",
+    washOpacity: 1,
+    window: "radial-gradient(closest-side, rgba(255,196,130,0.22), transparent)",
+    windowOpacity: 0.5,
+    lamp: "radial-gradient(closest-side, rgba(255,168,84,0.42), transparent)",
+    lampOpacity: 1,
+  },
+  {
+    icon: Monitor,
+    label: "Movie",
+    description: "Zenith sets the stage — ambient light recedes for a cinematic picture.",
+    filter: "brightness(0.72) saturate(1.05) contrast(1.08)",
+    wash: "linear-gradient(120deg, rgba(30,40,70,0.34), rgba(8,10,18,0.5))",
+    washOpacity: 1,
+    window: "radial-gradient(closest-side, rgba(120,150,210,0.16), transparent)",
+    windowOpacity: 0.35,
+    lamp: "radial-gradient(closest-side, rgba(255,164,90,0.22), transparent)",
+    lampOpacity: 0.6,
+  },
+  {
+    icon: Wine,
+    label: "Dinner",
+    description: "Zenith warms the room — low, intimate lighting around the table.",
+    filter: "brightness(0.86) saturate(1.14) contrast(1.03)",
+    wash: "linear-gradient(120deg, rgba(190,90,40,0.18), rgba(30,16,8,0.34))",
+    washOpacity: 1,
+    window: "radial-gradient(closest-side, rgba(255,190,130,0.14), transparent)",
+    windowOpacity: 0.35,
+    lamp: "radial-gradient(closest-side, rgba(255,150,70,0.4), transparent)",
+    lampOpacity: 0.95,
+  },
+  {
+    icon: Moon,
+    label: "Night",
+    description: "Zenith settles the home — windows darken, only soft accent light remains.",
+    filter: "brightness(0.6) saturate(0.95) contrast(1.06)",
+    wash: "linear-gradient(120deg, rgba(14,20,38,0.46), rgba(6,8,14,0.6))",
+    washOpacity: 1,
+    window: "radial-gradient(closest-side, rgba(60,80,130,0.18), transparent)",
+    windowOpacity: 0.5,
+    lamp: "radial-gradient(closest-side, rgba(255,168,96,0.3), transparent)",
+    lampOpacity: 0.85,
+  },
 ];
 
+const SCENE_TRANSITION = { duration: 1, ease: EASE } as const;
+
 export function ExperienceSection() {
+  const [active, setActive] = useState(2);
+  const scene = scenes[active]!;
+
   return (
     <section className="bg-backdrop px-6 py-16 sm:px-12 sm:py-24 lg:px-20 lg:py-28 2xl:px-30">
       {/* Heading */}
