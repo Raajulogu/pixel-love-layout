@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { EASE, staggerChild, staggerParent } from "@/lib/motion";
+import { staggerChild, staggerParent } from "@/lib/motion";
 import { ArrowRight, Play, Home, ShieldCheck, SlidersHorizontal, Gem } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { HeroSmartHome } from "@/components/HeroSmartHome";
 import { EcosystemSection } from "@/components/EcosystemSection";
 import { ProductsSection } from "@/components/ProductsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
@@ -10,8 +11,6 @@ import { WhyZenithSection } from "@/components/WhyZenithSection";
 import { StoriesSection } from "@/components/StoriesSection";
 import { ContactSection } from "@/components/ContactSection";
 import { SiteFooter } from "@/components/SiteFooter";
-import panelImg from "@/assets/zenith-panel.jpg";
-import roomImg from "@/assets/zenith-room.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
