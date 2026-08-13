@@ -170,12 +170,10 @@ export function HeroSmartHome() {
             />
             <div
               className="absolute inset-y-0 right-0 w-[52%] transition-transform"
-
               style={{
-                transform: `translateX(${state.curtains ? "78%" : "0%"})`,
+                transform: `translateX(${state.curtains ? "80%" : "0%"})`,
                 background:
-                  "linear-gradient(270deg, rgba(226,214,196,0.30), rgba(226,214,196,0.16) 70%, rgba(226,214,196,0.05))",
-                backdropFilter: "blur(1px)",
+                  "linear-gradient(270deg, rgba(214,201,182,0.22), rgba(214,201,182,0.11) 70%, rgba(214,201,182,0.03))",
                 ...t(900),
               }}
             />
