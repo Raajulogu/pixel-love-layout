@@ -110,7 +110,7 @@ export function HeroSmartHome() {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative w-full min-w-0">
       {/* ---------------- visual ---------------- */}
       <motion.div
         initial={{ opacity: 0, y: 18 }}
@@ -240,7 +240,7 @@ export function HeroSmartHome() {
       <div
         role="group"
         aria-label="Zenith smart home demo controls"
-        className="snap-rail mt-4 flex gap-3 overflow-x-auto pb-1 sm:mt-5 sm:grid sm:grid-cols-3 sm:overflow-visible"
+        className="snap-rail -mx-1 mt-4 flex w-full min-w-0 px-1 sm:mx-0 sm:px-0 gap-3 overflow-x-auto pb-1 sm:mt-5 sm:grid sm:grid-cols-3 sm:overflow-visible"
       >
         {devices.map(({ key, name, icon: Icon, on, off }) => {
           const active = state[key];
