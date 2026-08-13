@@ -272,3 +272,13 @@ html {
   .btn-lift:hover,
   .btn-lift:active { transform: none !important; }
 }
+
+@keyframes ac-drift {
+  0% { opacity: 0; transform: translateX(-6%); }
+  35% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(34%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="ac-drift"] { animation: none !important; }
+}
