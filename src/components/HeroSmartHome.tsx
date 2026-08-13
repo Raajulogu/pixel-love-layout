@@ -240,7 +240,7 @@ export function HeroSmartHome() {
       <div
         role="group"
         aria-label="Zenith smart home demo controls"
-        className="snap-rail mt-4 flex gap-3 overflow-x-auto pb-1 sm:mt-5 sm:grid sm:grid-cols-3 sm:overflow-visible lg:grid-cols-6"
+        className="snap-rail mt-4 flex gap-3 overflow-x-auto pb-1 sm:mt-5 sm:grid sm:grid-cols-3 sm:overflow-visible"
       >
         {devices.map(({ key, name, icon: Icon, on, off }) => {
           const active = state[key];
