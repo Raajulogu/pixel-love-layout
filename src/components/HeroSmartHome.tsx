@@ -128,36 +128,49 @@ export function HeroSmartHome() {
             className="absolute inset-0 h-full w-full object-cover"
           />
 
-          {/* LIGHTS — warm window pools + interior wash + ground reflection */}
+          {/* LIGHTS — a brightened copy of the house masked to the glazing, plus warm spill */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 transition-opacity"
             style={{ opacity: state.light ? 1 : 0, ...t(900) }}
           >
-            <div className="absolute inset-x-[10%] top-[33%] h-[19%] rounded-[2rem] bg-[radial-gradient(closest-side,rgba(255,196,116,0.42),transparent)] blur-xl" />
-            <div className="absolute inset-x-[24%] top-[54%] h-[22%] rounded-[3rem] bg-[radial-gradient(closest-side,rgba(255,201,128,0.5),transparent)] blur-xl" />
-            <div className="absolute left-[62%] top-[56%] h-[16%] w-[22%] rounded-full bg-[radial-gradient(closest-side,rgba(255,187,104,0.4),transparent)] blur-xl" />
-            <div className="absolute inset-x-[18%] top-[74%] h-[22%] bg-[radial-gradient(closest-side,rgba(255,183,99,0.22),transparent)] blur-2xl" />
-            <div className="absolute inset-0 bg-[radial-gradient(60%_45%_at_50%_52%,rgba(255,186,105,0.12),transparent_70%)]" />
+            <img
+              src={houseImg}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{
+                filter: "brightness(2.35) saturate(1.25) sepia(0.22) contrast(1.02)",
+                WebkitMaskImage:
+                  "radial-gradient(30% 12% at 33% 42%, #000 25%, transparent 75%), radial-gradient(26% 14% at 62% 63%, #000 25%, transparent 75%), radial-gradient(16% 10% at 84% 64%, #000 25%, transparent 78%)",
+                maskImage:
+                  "radial-gradient(30% 12% at 33% 42%, #000 25%, transparent 75%), radial-gradient(26% 14% at 62% 63%, #000 25%, transparent 75%), radial-gradient(16% 10% at 84% 64%, #000 25%, transparent 78%)",
+                WebkitMaskComposite: "source-over",
+              }}
+            />
+            <div className="absolute inset-x-[10%] top-[33%] h-[19%] rounded-[2rem] bg-[radial-gradient(closest-side,rgba(255,196,116,0.32),transparent)] blur-xl" />
+            <div className="absolute inset-x-[24%] top-[54%] h-[22%] rounded-[3rem] bg-[radial-gradient(closest-side,rgba(255,201,128,0.34),transparent)] blur-xl" />
+            <div className="absolute inset-x-[18%] top-[74%] h-[24%] bg-[radial-gradient(closest-side,rgba(255,183,99,0.24),transparent)] blur-2xl" />
+            <div className="absolute inset-0 bg-[radial-gradient(60%_45%_at_50%_52%,rgba(255,186,105,0.10),transparent_70%)]" />
           </div>
 
           {/* CURTAINS — two sheer panels over the upper-left glazing */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-[13%] top-[34%] h-[16%] w-[30%] overflow-hidden"
+            className="pointer-events-none absolute left-[13%] top-[35%] h-[15%] w-[30%] overflow-hidden"
           >
             <div
               className="absolute inset-y-0 left-0 w-[52%] transition-transform"
               style={{
-                transform: `translateX(${state.curtains ? "-78%" : "0%"})`,
+                transform: `translateX(${state.curtains ? "-80%" : "0%"})`,
                 background:
-                  "linear-gradient(90deg, rgba(226,214,196,0.30), rgba(226,214,196,0.16) 70%, rgba(226,214,196,0.05))",
-                backdropFilter: "blur(1px)",
+                  "linear-gradient(90deg, rgba(214,201,182,0.22), rgba(214,201,182,0.11) 70%, rgba(214,201,182,0.03))",
                 ...t(900),
               }}
             />
             <div
               className="absolute inset-y-0 right-0 w-[52%] transition-transform"
+
               style={{
                 transform: `translateX(${state.curtains ? "78%" : "0%"})`,
                 background:
