@@ -17,24 +17,79 @@ import { reveal, fade } from "@/lib/motion";
 import houseImg from "@/assets/zenith-house.jpg";
 
 const leftFeatures = [
-  { icon: Lightbulb, title: "Smart Lighting", line1: "Set the perfect mood", line2: "for every moment." },
+  {
+    icon: Lightbulb,
+    title: "Smart Lighting",
+    line1: "Set the perfect mood",
+    line2: "for every moment.",
+  },
   { icon: Blinds, title: "Smart Curtains", line1: "Automated comfort", line2: "at your command." },
-  { icon: Lock, title: "Smart Locks", line1: "Advanced security", line2: "for total peace of mind." },
-  { icon: Shield, title: "Smart Security", line1: "24/7 protection for", line2: "what matters most." },
+  {
+    icon: Lock,
+    title: "Smart Locks",
+    line1: "Advanced security",
+    line2: "for total peace of mind.",
+  },
+  {
+    icon: Shield,
+    title: "Smart Security",
+    line1: "24/7 protection for",
+    line2: "what matters most.",
+  },
 ];
 
 const rightFeatures = [
-  { icon: MonitorSmartphone, title: "Touch Panels", line1: "Control your entire home", line2: "from one elegant panel." },
-  { icon: Volume2, title: "Voice Control", line1: "Hands-free convenience", line2: "with your voice." },
-  { icon: Thermometer, title: "Climate Control", line1: "Smart temperature", line2: "for perfect comfort." },
-  { icon: Wifi, title: "Smart Sensors", line1: "Intelligent sensing for", line2: "a safer, smarter home." },
+  {
+    icon: MonitorSmartphone,
+    title: "Touch Panels",
+    line1: "Control your entire home",
+    line2: "from one elegant panel.",
+  },
+  {
+    icon: Volume2,
+    title: "Voice Control",
+    line1: "Hands-free convenience",
+    line2: "with your voice.",
+  },
+  {
+    icon: Thermometer,
+    title: "Climate Control",
+    line1: "Smart temperature",
+    line2: "for perfect comfort.",
+  },
+  {
+    icon: Wifi,
+    title: "Smart Sensors",
+    line1: "Intelligent sensing for",
+    line2: "a safer, smarter home.",
+  },
 ];
 
 const bottomBar = [
-  { icon: RefreshCcw, title: "Seamless Integration", line1: "All Zenith devices work", line2: "in perfect harmony." },
-  { icon: Smartphone, title: "Control from Anywhere", line1: "Manage your home from", line2: "anywhere in the world." },
-  { icon: Zap, title: "Automate Effortlessly", line1: "Create smart scenes and", line2: "routines with ease." },
-  { icon: Award, title: "Made for Modern Living", line1: "Designed to complement", line2: "your lifestyle." },
+  {
+    icon: RefreshCcw,
+    title: "Seamless Integration",
+    line1: "All Zenith devices work",
+    line2: "in perfect harmony.",
+  },
+  {
+    icon: Smartphone,
+    title: "Control from Anywhere",
+    line1: "Manage your home from",
+    line2: "anywhere in the world.",
+  },
+  {
+    icon: Zap,
+    title: "Automate Effortlessly",
+    line1: "Create smart scenes and",
+    line2: "routines with ease.",
+  },
+  {
+    icon: Award,
+    title: "Made for Modern Living",
+    line1: "Designed to complement",
+    line2: "your lifestyle.",
+  },
 ];
 
 type Feature = (typeof leftFeatures)[number];
@@ -89,8 +144,8 @@ export function EcosystemSection() {
           Beautifully <span className="text-gold">Intelligent.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground">
-          Zenith devices work together seamlessly to automate, secure and elevate every corner of your
-          home.
+          Zenith devices work together seamlessly to automate, secure and elevate every corner of
+          your home.
         </p>
         <svg viewBox="0 0 60 16" className="mx-auto mt-6 h-3 w-12 text-gold" aria-hidden="true">
           <path
@@ -147,7 +202,10 @@ export function EcosystemSection() {
             />
 
             {/* Phone */}
-            <motion.div {...fade(0.25)} className="absolute bottom-[-6%] left-1/2 w-[27%] min-w-[132px] -translate-x-1/2 rounded-[1.6rem] border border-foreground/15 bg-[#0b0b0b] p-2 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)]">
+            <motion.div
+              {...fade(0.25)}
+              className="absolute bottom-[-6%] left-1/2 w-[27%] min-w-[132px] -translate-x-1/2 rounded-[1.6rem] border border-foreground/15 bg-[#0b0b0b] p-2 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)]"
+            >
               <div className="rounded-[1.2rem] bg-[#0e0e0e] p-3">
                 <div className="mx-auto mb-3 h-1 w-8 rounded-full bg-foreground/20" />
                 <div className="flex items-center justify-between">

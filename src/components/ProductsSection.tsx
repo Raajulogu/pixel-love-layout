@@ -46,10 +46,30 @@ const products = [
 ];
 
 const assurances = [
-  { icon: Gem, title: "Premium Materials", line1: "Built with the finest materials", line2: "for lasting elegance." },
-  { icon: ShieldCheck, title: "10 Year Warranty", line1: "Industry leading warranty", line2: "for complete peace of mind." },
-  { icon: Settings, title: "Seamless Integration", line1: "Works effortlessly with your", line2: "lifestyle and devices." },
-  { icon: Headphones, title: "Expert Support", line1: "Dedicated support to keep", line2: "your home running smoothly." },
+  {
+    icon: Gem,
+    title: "Premium Materials",
+    line1: "Built with the finest materials",
+    line2: "for lasting elegance.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "10 Year Warranty",
+    line1: "Industry leading warranty",
+    line2: "for complete peace of mind.",
+  },
+  {
+    icon: Settings,
+    title: "Seamless Integration",
+    line1: "Works effortlessly with your",
+    line2: "lifestyle and devices.",
+  },
+  {
+    icon: Headphones,
+    title: "Expert Support",
+    line1: "Dedicated support to keep",
+    line2: "your home running smoothly.",
+  },
 ];
 
 export function ProductsSection() {
@@ -63,12 +83,23 @@ export function ProductsSection() {
         variants={staggerParent}
         className="flex flex-col items-center text-center"
       >
-        <motion.p variants={staggerChild} className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Our Products</motion.p>
+        <motion.p
+          variants={staggerChild}
+          className="text-xs font-medium uppercase tracking-[0.35em] text-gold"
+        >
+          Our Products
+        </motion.p>
         <motion.span variants={staggerChild} className="mt-4 block h-px w-12 bg-gold/60" />
-        <motion.h2 variants={staggerChild} className="mt-6 font-display text-[clamp(2.4rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-[-0.02em] text-foreground">
+        <motion.h2
+          variants={staggerChild}
+          className="mt-6 font-display text-[clamp(2.4rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-[-0.02em] text-foreground"
+        >
           The Zenith <span className="text-gold">Collection</span>
         </motion.h2>
-        <motion.p variants={staggerChild} className="mt-6 text-[1.05rem] leading-relaxed text-muted-foreground">
+        <motion.p
+          variants={staggerChild}
+          className="mt-6 text-[1.05rem] leading-relaxed text-muted-foreground"
+        >
           Curated for modern living. Designed with precision.
           <br />
           Built to transform the way you live.

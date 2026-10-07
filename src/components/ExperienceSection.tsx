@@ -1,5 +1,17 @@
 import { useState } from "react";
-import { ArrowRight, Lightbulb, Blinds, ShieldCheck, Zap, Sunrise, Laptop, Armchair, Monitor, Wine, Moon } from "lucide-react";
+import {
+  ArrowRight,
+  Lightbulb,
+  Blinds,
+  ShieldCheck,
+  Zap,
+  Sunrise,
+  Laptop,
+  Armchair,
+  Monitor,
+  Wine,
+  Moon,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { reveal, fade, staggerParent, staggerChild, viewportOnce, EASE } from "@/lib/motion";
 import roomImg from "@/assets/exp-room.jpg";
@@ -139,15 +151,24 @@ export function ExperienceSection() {
         variants={staggerParent}
         className="flex flex-col items-center text-center"
       >
-        <motion.p variants={staggerChild} className="text-xs font-medium uppercase tracking-[0.35em] text-gold">
+        <motion.p
+          variants={staggerChild}
+          className="text-xs font-medium uppercase tracking-[0.35em] text-gold"
+        >
           The Zenith Experience
         </motion.p>
-        <motion.h2 variants={staggerChild} className="mt-6 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-normal leading-[1.1] tracking-[-0.02em] text-foreground">
+        <motion.h2
+          variants={staggerChild}
+          className="mt-6 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-normal leading-[1.1] tracking-[-0.02em] text-foreground"
+        >
           Intelligence That
           <br />
           <span className="text-gold">Enhances Every Moment.</span>
         </motion.h2>
-        <motion.p variants={staggerChild} className="mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground">
+        <motion.p
+          variants={staggerChild}
+          className="mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground"
+        >
           Zenith blends seamlessly into your lifestyle, anticipating your needs
           <br className="hidden sm:block" /> and creating the perfect atmosphere—effortlessly.
         </motion.p>
@@ -188,7 +209,10 @@ export function ExperienceSection() {
         </div>
 
         {/* Visual */}
-        <motion.div {...fade(0.1)} className="relative order-1 overflow-hidden rounded-2xl ring-1 ring-foreground/[0.08] lg:order-2">
+        <motion.div
+          {...fade(0.1)}
+          className="relative order-1 overflow-hidden rounded-2xl ring-1 ring-foreground/[0.08] lg:order-2"
+        >
           <div className="relative">
             <motion.img
               src={roomImg}
@@ -285,7 +309,6 @@ export function ExperienceSection() {
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

@@ -53,60 +53,117 @@ const groups: { category: string; items: { q: string; a: string }[] }[] = [
   {
     category: "General",
     items: [
-      { q: "What exactly is Zenith?", a: "Zenith is the Lumiwaves smart living ecosystem — switches, touch panels, lighting, curtains, locks and sensors that share one design language and one control layer." },
-      { q: "Is Zenith only for new homes?", a: "No. Roughly half of our installations are retrofits into finished homes, completed without damaging interiors." },
-      { q: "How much does a Zenith home cost?", a: "It scales with the number of rooms and circuits. After a consultation we provide a fixed, itemised proposal — no open-ended estimates." },
+      {
+        q: "What exactly is Zenith?",
+        a: "Zenith is the Lumiwaves smart living ecosystem — switches, touch panels, lighting, curtains, locks and sensors that share one design language and one control layer.",
+      },
+      {
+        q: "Is Zenith only for new homes?",
+        a: "No. Roughly half of our installations are retrofits into finished homes, completed without damaging interiors.",
+      },
+      {
+        q: "How much does a Zenith home cost?",
+        a: "It scales with the number of rooms and circuits. After a consultation we provide a fixed, itemised proposal — no open-ended estimates.",
+      },
     ],
   },
   {
     category: "Installation",
     items: [
-      { q: "How long does an installation take?", a: "A typical apartment takes 5–9 days; a full villa 8–14 weeks including design and commissioning." },
-      { q: "Do you use subcontractors?", a: "Never. Every Lumiwaves site is run by our own certified engineers." },
-      { q: "Will my walls need rework?", a: "In most retrofits Zenith fits existing back boxes. Where changes are needed, we make good and finish to match." },
+      {
+        q: "How long does an installation take?",
+        a: "A typical apartment takes 5–9 days; a full villa 8–14 weeks including design and commissioning.",
+      },
+      {
+        q: "Do you use subcontractors?",
+        a: "Never. Every Lumiwaves site is run by our own certified engineers.",
+      },
+      {
+        q: "Will my walls need rework?",
+        a: "In most retrofits Zenith fits existing back boxes. Where changes are needed, we make good and finish to match.",
+      },
     ],
   },
   {
     category: "Compatibility",
     items: [
-      { q: "Does Zenith work with my existing lights?", a: "Yes. Zenith controls conventional, LED and dimmable fixtures, and integrates with most leading lighting brands." },
-      { q: "Can I keep my current router and network?", a: "Usually yes. We assess your network during the site survey and recommend upgrades only when reliability requires it." },
-      { q: "Does Zenith work with other smart brands?", a: "Zenith integrates with major climate, security, audio and voice platforms through standard protocols." },
+      {
+        q: "Does Zenith work with my existing lights?",
+        a: "Yes. Zenith controls conventional, LED and dimmable fixtures, and integrates with most leading lighting brands.",
+      },
+      {
+        q: "Can I keep my current router and network?",
+        a: "Usually yes. We assess your network during the site survey and recommend upgrades only when reliability requires it.",
+      },
+      {
+        q: "Does Zenith work with other smart brands?",
+        a: "Zenith integrates with major climate, security, audio and voice platforms through standard protocols.",
+      },
     ],
   },
   {
     category: "Warranty",
     items: [
-      { q: "What does the warranty cover?", a: "Ten years on Zenith hardware and two years on installation workmanship, documented at handover." },
-      { q: "Is labour included in warranty visits?", a: "Yes — in-warranty diagnosis, replacement and labour are covered." },
+      {
+        q: "What does the warranty cover?",
+        a: "Ten years on Zenith hardware and two years on installation workmanship, documented at handover.",
+      },
+      {
+        q: "Is labour included in warranty visits?",
+        a: "Yes — in-warranty diagnosis, replacement and labour are covered.",
+      },
     ],
   },
   {
     category: "Support",
     items: [
-      { q: "Who do I call when something goes wrong?", a: "Your named specialist. Same person, same number, for the life of your system." },
-      { q: "How quickly do you respond?", a: "Remote diagnostics within a few hours; on-site attendance for critical issues within 48 hours." },
+      {
+        q: "Who do I call when something goes wrong?",
+        a: "Your named specialist. Same person, same number, for the life of your system.",
+      },
+      {
+        q: "How quickly do you respond?",
+        a: "Remote diagnostics within a few hours; on-site attendance for critical issues within 48 hours.",
+      },
     ],
   },
   {
     category: "Mobile App",
     items: [
-      { q: "Can the whole family use the app?", a: "Yes. Add unlimited household members with individual permissions per room or device." },
-      { q: "Does the app work away from home?", a: "Yes, over an encrypted remote connection — anywhere in the world." },
+      {
+        q: "Can the whole family use the app?",
+        a: "Yes. Add unlimited household members with individual permissions per room or device.",
+      },
+      {
+        q: "Does the app work away from home?",
+        a: "Yes, over an encrypted remote connection — anywhere in the world.",
+      },
     ],
   },
   {
     category: "Voice Control",
     items: [
-      { q: "Which assistants are supported?", a: "Alexa, Google Assistant and Siri Shortcuts, all configured during commissioning." },
-      { q: "Do I need voice control to use Zenith?", a: "Not at all. Panels, switches and the app work fully on their own." },
+      {
+        q: "Which assistants are supported?",
+        a: "Alexa, Google Assistant and Siri Shortcuts, all configured during commissioning.",
+      },
+      {
+        q: "Do I need voice control to use Zenith?",
+        a: "Not at all. Panels, switches and the app work fully on their own.",
+      },
     ],
   },
   {
     category: "Automation",
     items: [
-      { q: "Can scenes change through the day?", a: "Yes. Scenes can follow sunrise and sunset, occupancy, schedules or your arrival." },
-      { q: "What happens if the internet goes down?", a: "Zenith is local-first. Switches, panels and automations keep working; only remote access pauses." },
+      {
+        q: "Can scenes change through the day?",
+        a: "Yes. Scenes can follow sunrise and sunset, occupancy, schedules or your arrival.",
+      },
+      {
+        q: "What happens if the internet goes down?",
+        a: "Zenith is local-first. Switches, panels and automations keep working; only remote access pauses.",
+      },
     ],
   },
 ];

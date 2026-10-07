@@ -58,10 +58,17 @@ export function SiteFooter() {
         <div className="min-w-0">
           <div className="flex items-center justify-center gap-4 sm:justify-start">
             <svg viewBox="0 0 60 16" className="h-5 w-14 shrink-0 text-gold" aria-hidden="true">
-              <path d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3" fill="none" stroke="currentColor" strokeWidth="1.4" />
+              <path
+                d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+              />
             </svg>
             <div className="min-w-0">
-              <p className="truncate font-display text-3xl font-medium text-foreground">Lumiwaves</p>
+              <p className="truncate font-display text-3xl font-medium text-foreground">
+                Lumiwaves
+              </p>
               <p className="text-sm text-muted-foreground">Living, Smarter.</p>
             </div>
           </div>
@@ -87,7 +94,11 @@ export function SiteFooter() {
         </div>
 
         {columns.map((col) => (
-          <nav key={col.title} aria-label={col.title} className="min-w-0 lg:border-l lg:border-foreground/10 lg:pl-8">
+          <nav
+            key={col.title}
+            aria-label={col.title}
+            className="min-w-0 lg:border-l lg:border-foreground/10 lg:pl-8"
+          >
             <h2 className="font-display text-lg font-medium text-foreground">{col.title}</h2>
             <ul className="mt-5 space-y-3">
               {col.links.map((l) => (
@@ -119,7 +130,10 @@ export function SiteFooter() {
             </li>
             <li className="flex items-start justify-center gap-3 sm:justify-start">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <a href={MAIL_HREF} className="break-all transition-colors duration-300 hover:text-gold">
+              <a
+                href={MAIL_HREF}
+                className="break-all transition-colors duration-300 hover:text-gold"
+              >
                 {EMAIL}
               </a>
             </li>

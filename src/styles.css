@@ -165,13 +165,23 @@
 }
 
 @keyframes rise {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes slow-zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.07); }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
 }
 
 /* Viewport-triggered reveal: pure CSS scroll-driven, no JS class mutation */
@@ -186,7 +196,6 @@
   }
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   .animate-rise,
   .animate-slow-zoom {
@@ -199,7 +208,9 @@
 /* Horizontal swipe rails on touch devices */
 @utility snap-rail {
   scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* ---------- Cinematic motion layer ---------- */
@@ -209,18 +220,33 @@ html {
 }
 
 @keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 @keyframes breathe {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 @keyframes soft-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
-  50% { box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.08); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.08);
+  }
 }
 
 @utility float-slow {
@@ -265,20 +291,36 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
   .float-slow,
   .breathe-glow,
-  .soft-pulse { animation: none !important; }
+  .soft-pulse {
+    animation: none !important;
+  }
   .btn-lift:hover,
-  .btn-lift:active { transform: none !important; }
+  .btn-lift:active {
+    transform: none !important;
+  }
 }
 
 @keyframes ac-drift {
-  0% { opacity: 0; transform: translateX(-6%); }
-  35% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(34%); }
+  0% {
+    opacity: 0;
+    transform: translateX(-6%);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(34%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [style*="ac-drift"] { animation: none !important; }
+  [style*="ac-drift"] {
+    animation: none !important;
+  }
 }

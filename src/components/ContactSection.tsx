@@ -1,16 +1,8 @@
-import {
-  Headset,
-  Home,
-  Sparkles,
-  BadgeCheck,
-  Clock4,
-  Heart,
-} from "lucide-react";
+import { Headset, Home, Sparkles, BadgeCheck, Clock4, Heart } from "lucide-react";
 import { motion } from "motion/react";
 import { reveal, fade, staggerParent, staggerChild, viewportOnce } from "@/lib/motion";
 import { ContactForm } from "@/components/ContactForm";
 import roomImg from "@/assets/zenith-room.jpg";
-
 
 const helpItems = [
   {
@@ -37,9 +29,6 @@ const assurances = [
   { icon: Heart, title: "Smarter, Greener Tomorrow", body: "For a better living experience" },
 ];
 
-
-
-
 export function ContactSection() {
   return (
     <section id="contact" className="relative overflow-hidden bg-backdrop pt-16 sm:pt-24">
@@ -58,10 +47,16 @@ export function ContactSection() {
           </p>
           <span className="hidden h-px w-16 bg-linear-to-l from-transparent to-gold/50 sm:block" />
         </motion.div>
-        <motion.h2 variants={staggerChild} className="mt-4 font-display text-[clamp(1.9rem,8vw,4rem)] sm:text-[clamp(2.6rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground">
+        <motion.h2
+          variants={staggerChild}
+          className="mt-4 font-display text-[clamp(1.9rem,8vw,4rem)] sm:text-[clamp(2.6rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground"
+        >
           Ready to Experience <span className="text-gold">Zenith?</span>
         </motion.h2>
-        <motion.p variants={staggerChild} className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground">
+        <motion.p
+          variants={staggerChild}
+          className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground"
+        >
           Take the first step towards a smarter, safer and more beautiful home.
           <br className="hidden sm:block" /> Our team is here to help you, from planning to
           installation and beyond.
@@ -83,7 +78,10 @@ export function ContactSection() {
         </div>
 
         <div className="relative mx-auto grid max-w-[95rem] grid-cols-1 items-center gap-10 px-6 pt-12 pb-14 sm:px-12 lg:px-20 2xl:px-30 lg:grid-cols-[42%_minmax(0,1fr)] lg:gap-0 lg:pt-24 lg:pb-24">
-          <motion.div {...fade()} className="overflow-hidden rounded-2xl ring-1 ring-foreground/10 lg:hidden">
+          <motion.div
+            {...fade()}
+            className="overflow-hidden rounded-2xl ring-1 ring-foreground/10 lg:hidden"
+          >
             <img
               src={roomImg}
               alt="Warmly lit modern living room with a Zenith control panel"
@@ -131,7 +129,6 @@ export function ContactSection() {
                 ]}
               />
             </motion.div>
-
           </div>
         </div>
       </div>

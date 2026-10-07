@@ -38,7 +38,8 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: "Services — Design, Install & Care by Lumiwaves" },
       {
         property: "og:description",
-        content: "One team, one accountability — consultation, design, installation, training and support.",
+        content:
+          "One team, one accountability — consultation, design, installation, training and support.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://pixel-love-layout.lovable.app/services" },
@@ -52,23 +53,85 @@ export const Route = createFileRoute("/services")({
 });
 
 const journey = [
-  { icon: MessagesSquare, step: "01", title: "Consultation", body: "We start with how you live — rooms, routines, priorities." },
-  { icon: Ruler, step: "02", title: "Site Assessment", body: "A full survey of wiring, network, light and architecture." },
-  { icon: Network, step: "03", title: "Automation Planning", body: "Scenes, zones and logic mapped before a wire is drawn." },
-  { icon: PencilRuler, step: "04", title: "Custom Design", body: "Finishes, engraving and placement matched to your interiors." },
-  { icon: HardHat, step: "05", title: "Installation", body: "Certified in-house teams. Clean sites. Zero improvisation." },
-  { icon: SlidersHorizontal, step: "06", title: "Configuration", body: "Every scene tuned to the light and mood of your home." },
-  { icon: CheckCircle2, step: "07", title: "Testing", body: "A 120-point commissioning check before handover." },
-  { icon: GraduationCap, step: "08", title: "Training", body: "An unhurried walkthrough for everyone in the household." },
-  { icon: LifeBuoy, step: "09", title: "Support", body: "A named specialist, reachable — never a ticket queue." },
-  { icon: ShieldCheck, step: "10", title: "Warranty", body: "Ten years of cover on Zenith hardware, in writing." },
+  {
+    icon: MessagesSquare,
+    step: "01",
+    title: "Consultation",
+    body: "We start with how you live — rooms, routines, priorities.",
+  },
+  {
+    icon: Ruler,
+    step: "02",
+    title: "Site Assessment",
+    body: "A full survey of wiring, network, light and architecture.",
+  },
+  {
+    icon: Network,
+    step: "03",
+    title: "Automation Planning",
+    body: "Scenes, zones and logic mapped before a wire is drawn.",
+  },
+  {
+    icon: PencilRuler,
+    step: "04",
+    title: "Custom Design",
+    body: "Finishes, engraving and placement matched to your interiors.",
+  },
+  {
+    icon: HardHat,
+    step: "05",
+    title: "Installation",
+    body: "Certified in-house teams. Clean sites. Zero improvisation.",
+  },
+  {
+    icon: SlidersHorizontal,
+    step: "06",
+    title: "Configuration",
+    body: "Every scene tuned to the light and mood of your home.",
+  },
+  {
+    icon: CheckCircle2,
+    step: "07",
+    title: "Testing",
+    body: "A 120-point commissioning check before handover.",
+  },
+  {
+    icon: GraduationCap,
+    step: "08",
+    title: "Training",
+    body: "An unhurried walkthrough for everyone in the household.",
+  },
+  {
+    icon: LifeBuoy,
+    step: "09",
+    title: "Support",
+    body: "A named specialist, reachable — never a ticket queue.",
+  },
+  {
+    icon: ShieldCheck,
+    step: "10",
+    title: "Warranty",
+    body: "Ten years of cover on Zenith hardware, in writing.",
+  },
 ];
 
 const promises = [
-  { icon: ShieldCheck, title: "Single Accountability", body: "One team owns design, install and aftercare." },
+  {
+    icon: ShieldCheck,
+    title: "Single Accountability",
+    body: "One team owns design, install and aftercare.",
+  },
   { icon: HardHat, title: "In-House Engineers", body: "No subcontractors on site, ever." },
-  { icon: SlidersHorizontal, title: "Tuned, Not Templated", body: "Scenes built around your home, not a preset." },
-  { icon: LifeBuoy, title: "Lifelong Care", body: "Updates, tuning and expansion for years to come." },
+  {
+    icon: SlidersHorizontal,
+    title: "Tuned, Not Templated",
+    body: "Scenes built around your home, not a preset.",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Lifelong Care",
+    body: "Updates, tuning and expansion for years to come.",
+  },
 ];
 
 function ServicesPage() {
@@ -114,7 +177,10 @@ function ServicesPage() {
       {/* Split feature */}
       <section className={SECTION}>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20">
-          <motion.div {...fade(0.05)} className="order-1 overflow-hidden rounded-3xl ring-1 ring-foreground/10 lg:order-2">
+          <motion.div
+            {...fade(0.05)}
+            className="order-1 overflow-hidden rounded-3xl ring-1 ring-foreground/10 lg:order-2"
+          >
             <img
               src={whyPanels}
               alt="Zenith panels prepared for installation"

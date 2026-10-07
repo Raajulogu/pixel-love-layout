@@ -4,12 +4,36 @@ import { reveal, fade, staggerParent, staggerChild, viewportOnce } from "@/lib/m
 import panelsImg from "@/assets/why-panels.jpg";
 
 const reasons = [
-  { icon: Gem, title: "Premium Materials", body: "Built with the finest materials for lasting beauty and durability." },
-  { icon: ShieldCheck, title: "Advanced Security", body: "Bank-level encryption and secure local control for complete peace of mind." },
-  { icon: Settings, title: "Seamless Integration", body: "Works with leading platforms and devices you already use." },
-  { icon: Zap, title: "Energy Efficiency", body: "Smarter automation that optimizes usage and reduces energy waste." },
-  { icon: Award, title: "10 Year Warranty", body: "Industry leading warranty because we stand by our quality." },
-  { icon: Headphones, title: "Expert Support", body: "Dedicated support team always here when you need us." },
+  {
+    icon: Gem,
+    title: "Premium Materials",
+    body: "Built with the finest materials for lasting beauty and durability.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Advanced Security",
+    body: "Bank-level encryption and secure local control for complete peace of mind.",
+  },
+  {
+    icon: Settings,
+    title: "Seamless Integration",
+    body: "Works with leading platforms and devices you already use.",
+  },
+  {
+    icon: Zap,
+    title: "Energy Efficiency",
+    body: "Smarter automation that optimizes usage and reduces energy waste.",
+  },
+  {
+    icon: Award,
+    title: "10 Year Warranty",
+    body: "Industry leading warranty because we stand by our quality.",
+  },
+  {
+    icon: Headphones,
+    title: "Expert Support",
+    body: "Dedicated support team always here when you need us.",
+  },
 ];
 
 export function WhyZenithSection() {
@@ -22,13 +46,24 @@ export function WhyZenithSection() {
         variants={staggerParent}
         className="flex flex-col items-center text-center"
       >
-        <motion.p variants={staggerChild} className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Why Zenith</motion.p>
-        <motion.h2 variants={staggerChild} className="mt-6 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-normal leading-[1.1] tracking-[-0.02em] text-foreground">
+        <motion.p
+          variants={staggerChild}
+          className="text-xs font-medium uppercase tracking-[0.35em] text-gold"
+        >
+          Why Zenith
+        </motion.p>
+        <motion.h2
+          variants={staggerChild}
+          className="mt-6 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-normal leading-[1.1] tracking-[-0.02em] text-foreground"
+        >
           Engineered for <span className="text-gold">Excellence.</span>
           <br />
           Trusted for <span className="text-gold">Life.</span>
         </motion.h2>
-        <motion.p variants={staggerChild} className="mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground">
+        <motion.p
+          variants={staggerChild}
+          className="mt-6 max-w-xl text-[0.98rem] leading-relaxed text-muted-foreground"
+        >
           At Zenith, every detail is crafted with precision to deliver unmatched
           <br className="hidden sm:block" /> reliability, security and elegance.
         </motion.p>
@@ -52,15 +87,11 @@ export function WhyZenithSection() {
               key={title}
               {...reveal(i * 0.07)}
               whileHover={{ y: -4 }}
-              className={`px-0 sm:px-5 ${
-                i % 3 !== 0 ? "sm:border-l sm:border-foreground/10" : ""
-              }`}
+              className={`px-0 sm:px-5 ${i % 3 !== 0 ? "sm:border-l sm:border-foreground/10" : ""}`}
             >
               <Icon className="h-8 w-8 text-gold" strokeWidth={1.1} />
               <h3 className="mt-4 text-[0.95rem] font-medium text-foreground">{title}</h3>
-              <p className="mt-2.5 text-[0.82rem] leading-relaxed text-muted-foreground">
-                {body}
-              </p>
+              <p className="mt-2.5 text-[0.82rem] leading-relaxed text-muted-foreground">{body}</p>
             </motion.div>
           ))}
         </div>

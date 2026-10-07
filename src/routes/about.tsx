@@ -50,26 +50,86 @@ export const Route = createFileRoute("/about")({
 
 const philosophy = [
   { icon: Gem, title: "Design", body: "Hardware that belongs on the wall of a beautiful home." },
-  { icon: Cpu, title: "Technology", body: "Quiet intelligence that anticipates instead of interrupting." },
-  { icon: ShieldCheck, title: "Reliability", body: "Engineered to work on the ten-thousandth touch." },
-  { icon: Headset, title: "Customer Experience", body: "One team, from first sketch to years after install." },
-  { icon: Sparkles, title: "Luxury Living", body: "Comfort you feel long before you notice the technology." },
+  {
+    icon: Cpu,
+    title: "Technology",
+    body: "Quiet intelligence that anticipates instead of interrupting.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Reliability",
+    body: "Engineered to work on the ten-thousandth touch.",
+  },
+  {
+    icon: Headset,
+    title: "Customer Experience",
+    body: "One team, from first sketch to years after install.",
+  },
+  {
+    icon: Sparkles,
+    title: "Luxury Living",
+    body: "Comfort you feel long before you notice the technology.",
+  },
 ];
 
 const reasons = [
-  { icon: Wrench, title: "Premium Craftsmanship", body: "Materials, finishes and tolerances held to furniture standards." },
-  { icon: Gem, title: "Elegant Design", body: "A single visual language across every switch, panel and lock." },
-  { icon: ShieldCheck, title: "Reliable Technology", body: "Local-first control that keeps working when the internet doesn't." },
-  { icon: Layers, title: "Seamless Integration", body: "Zenith speaks to lighting, climate, security and voice as one." },
-  { icon: LifeBuoy, title: "Dedicated Support", body: "A named specialist for your home, not a ticket queue." },
-  { icon: Lightbulb, title: "Future Ready", body: "Over-the-air evolution, so your home gets better with time." },
+  {
+    icon: Wrench,
+    title: "Premium Craftsmanship",
+    body: "Materials, finishes and tolerances held to furniture standards.",
+  },
+  {
+    icon: Gem,
+    title: "Elegant Design",
+    body: "A single visual language across every switch, panel and lock.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Reliable Technology",
+    body: "Local-first control that keeps working when the internet doesn't.",
+  },
+  {
+    icon: Layers,
+    title: "Seamless Integration",
+    body: "Zenith speaks to lighting, climate, security and voice as one.",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Dedicated Support",
+    body: "A named specialist for your home, not a ticket queue.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Future Ready",
+    body: "Over-the-air evolution, so your home gets better with time.",
+  },
 ];
 
 const process = [
-  { icon: Compass, step: "01", title: "Discover", body: "We listen to how you live before we plan a single circuit." },
-  { icon: PencilRuler, step: "02", title: "Design", body: "A tailored automation blueprint, drawn around your interiors." },
-  { icon: HardHat, step: "03", title: "Install", body: "Clean, precise installation by our own certified team." },
-  { icon: LifeBuoy, step: "04", title: "Support", body: "Ongoing care, tuning and updates for the life of your home." },
+  {
+    icon: Compass,
+    step: "01",
+    title: "Discover",
+    body: "We listen to how you live before we plan a single circuit.",
+  },
+  {
+    icon: PencilRuler,
+    step: "02",
+    title: "Design",
+    body: "A tailored automation blueprint, drawn around your interiors.",
+  },
+  {
+    icon: HardHat,
+    step: "03",
+    title: "Install",
+    body: "Clean, precise installation by our own certified team.",
+  },
+  {
+    icon: LifeBuoy,
+    step: "04",
+    title: "Support",
+    body: "Ongoing care, tuning and updates for the life of your home.",
+  },
 ];
 
 function AboutPage() {
@@ -92,7 +152,9 @@ function AboutPage() {
           <SiteHeader />
           <div className="flex flex-1 flex-col justify-center px-6 pt-10 pb-12 sm:px-12 sm:pt-14 lg:px-14 xl:px-20">
             <div className="max-w-xl animate-rise">
-              <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">About Lumiwaves</p>
+              <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">
+                About Lumiwaves
+              </p>
               <h1 className="mt-6 font-display text-[clamp(2.5rem,10vw,5rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-foreground">
                 We craft the
                 <br />
@@ -180,7 +242,8 @@ function AboutPage() {
             {
               icon: Target,
               label: "Mission",
-              title: "To make premium automation feel effortless, dependable and beautifully personal.",
+              title:
+                "To make premium automation feel effortless, dependable and beautifully personal.",
             },
           ].map(({ icon: Icon, label, title }, i) => (
             <article
@@ -191,7 +254,9 @@ function AboutPage() {
               <span className="grid h-14 w-14 place-items-center rounded-full border border-gold/35 text-gold">
                 <Icon className="h-6 w-6" strokeWidth={1.3} />
               </span>
-              <p className="mt-6 text-xs font-medium uppercase tracking-[0.35em] text-gold">{label}</p>
+              <p className="mt-6 text-xs font-medium uppercase tracking-[0.35em] text-gold">
+                {label}
+              </p>
               <h3 className="mt-4 font-display text-[clamp(1.5rem,4.5vw,2.25rem)] font-light leading-[1.15] tracking-[-0.01em] text-foreground">
                 {title}
               </h3>
@@ -203,7 +268,9 @@ function AboutPage() {
       {/* Philosophy */}
       <section className="mx-auto max-w-[95rem] px-6 pt-20 sm:px-12 sm:pt-28 lg:px-20 2xl:px-30">
         <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Our Philosophy</p>
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">
+            Our Philosophy
+          </p>
           <h2 className="mt-4 font-display text-[clamp(1.9rem,7vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground">
             Five convictions we build by.
           </h2>
@@ -230,7 +297,9 @@ function AboutPage() {
         <div className="overflow-hidden rounded-[2rem] border border-foreground/10 bg-hero-base">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_38%]">
             <div className="px-7 py-12 sm:px-12 sm:py-16">
-              <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Why Lumiwaves</p>
+              <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">
+                Why Lumiwaves
+              </p>
               <h2 className="mt-4 max-w-lg font-display text-[clamp(1.9rem,7vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground">
                 Chosen for the details others skip.
               </h2>
@@ -244,7 +313,9 @@ function AboutPage() {
                     <Icon className="h-8 w-8 shrink-0 text-gold" strokeWidth={1.2} />
                     <div className="min-w-0">
                       <h3 className="font-display text-lg font-medium text-foreground">{title}</h3>
-                      <p className="mt-1 text-[0.95rem] leading-relaxed text-muted-foreground">{body}</p>
+                      <p className="mt-1 text-[0.95rem] leading-relaxed text-muted-foreground">
+                        {body}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -268,7 +339,9 @@ function AboutPage() {
       {/* Process timeline */}
       <section className="mx-auto max-w-[95rem] px-6 pt-20 sm:px-12 sm:pt-28 lg:px-20 2xl:px-30">
         <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Our Design Process</p>
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">
+            Our Design Process
+          </p>
           <h2 className="mt-4 font-display text-[clamp(1.9rem,7vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground">
             Four steps. No surprises.
           </h2>

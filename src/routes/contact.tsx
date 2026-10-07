@@ -46,10 +46,28 @@ export const Route = createFileRoute("/contact")({
 });
 
 const options = [
-  { icon: Phone, label: "Call Us", value: PHONE_DISPLAY, note: "Mon–Sat, 9am – 7pm", href: TEL_HREF },
+  {
+    icon: Phone,
+    label: "Call Us",
+    value: PHONE_DISPLAY,
+    note: "Mon–Sat, 9am – 7pm",
+    href: TEL_HREF,
+  },
   { icon: Mail, label: "Email Us", value: EMAIL, note: "Reply within 24 hours", href: MAIL_HREF },
-  { icon: MessageCircle, label: "WhatsApp", value: "Chat with a specialist", note: "Fastest response", href: WHATSAPP_HREF },
-  { icon: MapPin, label: "Visit Us", value: "Pondicherry, India", note: "Experience center", href: "#office" },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "Chat with a specialist",
+    note: "Fastest response",
+    href: WHATSAPP_HREF,
+  },
+  {
+    icon: MapPin,
+    label: "Visit Us",
+    value: "Pondicherry, India",
+    note: "Experience center",
+    href: "#office",
+  },
 ];
 
 const trust = [
@@ -147,7 +165,10 @@ function ContactPage() {
       </section>
 
       {/* Form */}
-      <section id="form" className="mx-auto max-w-[95rem] px-6 pt-20 sm:px-12 sm:pt-28 lg:px-20 2xl:px-30">
+      <section
+        id="form"
+        className="mx-auto max-w-[95rem] px-6 pt-20 sm:px-12 sm:pt-28 lg:px-20 2xl:px-30"
+      >
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,32rem)] lg:gap-16">
           <div className="animate-rise min-w-0">
             <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Start Here</p>
@@ -204,11 +225,16 @@ function ContactPage() {
       </section>
 
       {/* Office */}
-      <section id="office" className="mx-auto max-w-[95rem] px-6 pt-20 sm:px-12 sm:pt-28 lg:px-20 2xl:px-30">
+      <section
+        id="office"
+        className="mx-auto max-w-[95rem] px-6 pt-20 sm:px-12 sm:pt-28 lg:px-20 2xl:px-30"
+      >
         <div className="overflow-hidden rounded-[2rem] border border-foreground/10 bg-hero-base">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="px-7 py-12 sm:px-12 sm:py-16">
-              <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">Experience Center</p>
+              <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">
+                Experience Center
+              </p>
               <h2 className="mt-4 font-display text-[clamp(1.8rem,6vw,3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground">
                 Lumiwaves, Pondicherry.
               </h2>
@@ -231,7 +257,9 @@ function ContactPage() {
                   <Phone className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.3} />
                   <span>
                     <span className="block text-foreground">Reception</span>
-                    <a href={TEL_HREF} className="transition-colors hover:text-gold">{PHONE_DISPLAY}</a>
+                    <a href={TEL_HREF} className="transition-colors hover:text-gold">
+                      {PHONE_DISPLAY}
+                    </a>
                   </span>
                 </li>
               </ul>

@@ -2,13 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight, Building2, Home, Star, Briefcase } from "lucide-react";
 import { SiteFooter } from "@/components/SiteFooter";
-import {
-  PageShell,
-  PageHero,
-  SectionHeading,
-  FinalCTA,
-  SECTION,
-} from "@/components/page-ui";
+import { PageShell, PageHero, SectionHeading, FinalCTA, SECTION } from "@/components/page-ui";
 import { reveal, fade, viewportOnce, staggerParent, staggerChild } from "@/lib/motion";
 import zenithHouse from "@/assets/zenith-house.jpg";
 import zenithRoom from "@/assets/zenith-room.jpg";
@@ -77,7 +71,11 @@ const categories = [
 ];
 
 const gallery = [
-  { img: zenithRoom, alt: "Living room with Zenith lighting scenes", span: "sm:col-span-2 sm:row-span-2" },
+  {
+    img: zenithRoom,
+    alt: "Living room with Zenith lighting scenes",
+    span: "sm:col-span-2 sm:row-span-2",
+  },
   { img: panelImg, alt: "Zenith touch panel in a hallway", span: "" },
   { img: lightingImg, alt: "Architectural lighting detail", span: "" },
   { img: whyPanels, alt: "Zenith switch plates in three finishes", span: "sm:col-span-2" },
@@ -86,15 +84,42 @@ const gallery = [
 ];
 
 const caseStudies = [
-  { metric: "42", suffix: "%", title: "Lower lighting energy", body: "Prestige villa, Bangalore — daylight-linked scenes across 68 circuits." },
-  { metric: "9", suffix: " days", title: "Retrofit, start to handover", body: "Sea-facing apartment, Chennai — zero interior damage." },
-  { metric: "220", suffix: "+", title: "Devices on one network", body: "Corporate HQ, Hyderabad — single-pane control for facilities." },
+  {
+    metric: "42",
+    suffix: "%",
+    title: "Lower lighting energy",
+    body: "Prestige villa, Bangalore — daylight-linked scenes across 68 circuits.",
+  },
+  {
+    metric: "9",
+    suffix: " days",
+    title: "Retrofit, start to handover",
+    body: "Sea-facing apartment, Chennai — zero interior damage.",
+  },
+  {
+    metric: "220",
+    suffix: "+",
+    title: "Devices on one network",
+    body: "Corporate HQ, Hyderabad — single-pane control for facilities.",
+  },
 ];
 
 const testimonials = [
-  { quote: "The install team treated our home better than we do. Everything simply works.", name: "Nandini K.", city: "Bangalore" },
-  { quote: "Zenith made a 20-year-old apartment feel brand new — without touching the interiors.", name: "Rohit V.", city: "Chennai" },
-  { quote: "Facilities used to get twelve calls a week. Now they get none.", name: "Meera D.", city: "Hyderabad" },
+  {
+    quote: "The install team treated our home better than we do. Everything simply works.",
+    name: "Nandini K.",
+    city: "Bangalore",
+  },
+  {
+    quote: "Zenith made a 20-year-old apartment feel brand new — without touching the interiors.",
+    name: "Rohit V.",
+    city: "Chennai",
+  },
+  {
+    quote: "Facilities used to get twelve calls a week. Now they get none.",
+    name: "Meera D.",
+    city: "Hyderabad",
+  },
 ];
 
 function ProjectsPage() {

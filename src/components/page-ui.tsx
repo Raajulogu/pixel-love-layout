@@ -6,8 +6,7 @@ import { reveal, staggerParent, staggerChild, viewportOnce } from "@/lib/motion"
 import { SiteHeader } from "@/components/SiteHeader";
 
 /** Standard page shell padding used by every page (matches home + about). */
-export const SECTION =
-  "mx-auto max-w-[95rem] px-6 pt-20 sm:px-12 sm:pt-28 lg:px-20 2xl:px-30";
+export const SECTION = "mx-auto max-w-[95rem] px-6 pt-20 sm:px-12 sm:pt-28 lg:px-20 2xl:px-30";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return <main className="min-h-screen bg-backdrop p-3 sm:p-5 lg:p-6">{children}</main>;
@@ -50,12 +49,7 @@ export function PageHero({
       <div className="relative flex min-h-[38rem] flex-col lg:min-h-[42rem]">
         <SiteHeader />
         <div className="flex flex-1 flex-col justify-center px-6 pt-10 pb-12 sm:px-12 sm:pt-14 lg:px-14 xl:px-20">
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={staggerParent}
-            className="max-w-xl"
-          >
+          <motion.div initial="hidden" animate="show" variants={staggerParent} className="max-w-xl">
             <motion.p
               variants={staggerChild}
               className="text-xs font-medium uppercase tracking-[0.35em] text-gold"
@@ -227,7 +221,9 @@ export function FinalCTA({
             <h2 className="font-display text-[clamp(2rem,8vw,3.75rem)] font-semibold leading-[1.03] tracking-[-0.02em] text-foreground">
               {title} {accent && <span className="text-gold">{accent}</span>}
             </h2>
-            <p className="mt-5 max-w-md text-[1rem] leading-relaxed text-muted-foreground">{body}</p>
+            <p className="mt-5 max-w-md text-[1rem] leading-relaxed text-muted-foreground">
+              {body}
+            </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
                 to="/contact"

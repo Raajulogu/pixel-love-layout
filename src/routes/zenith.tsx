@@ -63,20 +63,62 @@ export const Route = createFileRoute("/zenith")({
 });
 
 const ecosystemProducts = [
-  { img: switchImg, alt: "Zenith black glass smart switch", title: "Zenith Smart Switches", body: "Glass, haptics and light — on every wall." },
-  { img: panelImg, alt: "Zenith wall touch panel with gold bezel", title: "Zenith Touch Panels", body: "One surface. Complete control." },
-  { img: lightingImg, alt: "Warm architectural lighting", title: "Zenith Smart Lighting", body: "Light that follows the hour and the mood." },
-  { img: zenithRoom, alt: "Automated curtains in a luxury living room", title: "Zenith Smart Curtains", body: "Daylight, drawn on schedule." },
-  { img: lockImg, alt: "Zenith smart lock on a dark wooden door", title: "Zenith Smart Locks", body: "Arrive, and the door already knows." },
-  { img: hubImg, alt: "Zenith matte black sensor hub", title: "Zenith Sensors", body: "Quiet awareness in every room." },
+  {
+    img: switchImg,
+    alt: "Zenith black glass smart switch",
+    title: "Zenith Smart Switches",
+    body: "Glass, haptics and light — on every wall.",
+  },
+  {
+    img: panelImg,
+    alt: "Zenith wall touch panel with gold bezel",
+    title: "Zenith Touch Panels",
+    body: "One surface. Complete control.",
+  },
+  {
+    img: lightingImg,
+    alt: "Warm architectural lighting",
+    title: "Zenith Smart Lighting",
+    body: "Light that follows the hour and the mood.",
+  },
+  {
+    img: zenithRoom,
+    alt: "Automated curtains in a luxury living room",
+    title: "Zenith Smart Curtains",
+    body: "Daylight, drawn on schedule.",
+  },
+  {
+    img: lockImg,
+    alt: "Zenith smart lock on a dark wooden door",
+    title: "Zenith Smart Locks",
+    body: "Arrive, and the door already knows.",
+  },
+  {
+    img: hubImg,
+    alt: "Zenith matte black sensor hub",
+    title: "Zenith Sensors",
+    body: "Quiet awareness in every room.",
+  },
 ];
 
 const intelligent = [
-  { icon: Wand2, title: "Automation", body: "Scenes that run themselves — morning, evening, away." },
-  { icon: CalendarClock, title: "Schedules", body: "Time-of-day intelligence tuned to your routine." },
+  {
+    icon: Wand2,
+    title: "Automation",
+    body: "Scenes that run themselves — morning, evening, away.",
+  },
+  {
+    icon: CalendarClock,
+    title: "Schedules",
+    body: "Time-of-day intelligence tuned to your routine.",
+  },
   { icon: Globe, title: "Remote Control", body: "Your home, in your pocket, anywhere on earth." },
   { icon: Leaf, title: "Energy Saving", body: "Insight and automation that quietly reduce waste." },
-  { icon: ShieldCheck, title: "Security", body: "Locks, sensors and cameras acting as one system." },
+  {
+    icon: ShieldCheck,
+    title: "Security",
+    body: "Locks, sensors and cameras acting as one system.",
+  },
   { icon: Mic, title: "Voice Commands", body: "Say it once. The whole room responds." },
 ];
 
@@ -112,7 +154,10 @@ function ZenithPage() {
       {/* Meet Zenith */}
       <section className={`${SECTION} pb-6`}>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20">
-          <motion.div {...fade(0.05)} className="overflow-hidden rounded-3xl ring-1 ring-foreground/10">
+          <motion.div
+            {...fade(0.05)}
+            className="overflow-hidden rounded-3xl ring-1 ring-foreground/10"
+          >
             <img
               src={expRoom}
               alt="Softly lit interior controlled by Zenith"
@@ -143,7 +188,11 @@ function ZenithPage() {
       <section className={SECTION}>
         <SectionHeading
           eyebrow="Product Ecosystem"
-          title={<>Six products. <span className="text-gold">One</span> language.</>}
+          title={
+            <>
+              Six products. <span className="text-gold">One</span> language.
+            </>
+          }
           center
         />
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -200,7 +249,11 @@ function ZenithPage() {
             <div className="px-7 py-12 sm:px-12 sm:py-16">
               <SectionHeading
                 eyebrow="App Experience"
-                title={<>The Lumiwaves app. <span className="text-gold">Effortless.</span></>}
+                title={
+                  <>
+                    The Lumiwaves app. <span className="text-gold">Effortless.</span>
+                  </>
+                }
                 body="Beautifully restrained, deliberately simple — the whole home on one calm screen."
               />
               <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
@@ -213,7 +266,9 @@ function ZenithPage() {
                     <Icon className="h-8 w-8 shrink-0 text-gold" strokeWidth={1.2} />
                     <div className="min-w-0">
                       <h3 className="font-display text-lg font-medium text-foreground">{title}</h3>
-                      <p className="mt-1 text-[0.95rem] leading-relaxed text-muted-foreground">{body}</p>
+                      <p className="mt-1 text-[0.95rem] leading-relaxed text-muted-foreground">
+                        {body}
+                      </p>
                     </div>
                   </motion.div>
                 ))}

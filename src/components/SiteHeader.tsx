@@ -12,8 +12,6 @@ const navLinks: { label: string; to: string }[] = [
   { label: "Contact", to: "/contact" },
 ];
 
-
-
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -55,19 +53,19 @@ export function SiteHeader() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="min-w-0"
         >
-        <Link to="/" aria-label="Lumiwaves — home" className="flex min-w-0 flex-col gap-1">
-          <svg viewBox="0 0 60 16" className="h-3 w-14 text-gold" aria-hidden="true">
-            <path
-              d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.4"
-            />
-          </svg>
-          <span className="truncate font-display text-base font-semibold tracking-[0.22em] text-foreground sm:text-lg lg:text-xl">
-            LUMIWAVES
-          </span>
-        </Link>
+          <Link to="/" aria-label="Lumiwaves — home" className="flex min-w-0 flex-col gap-1">
+            <svg viewBox="0 0 60 16" className="h-3 w-14 text-gold" aria-hidden="true">
+              <path
+                d="M2 10c6-9 12 5 18-3s12 5 18-3 12 5 18-3"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+              />
+            </svg>
+            <span className="truncate font-display text-base font-semibold tracking-[0.22em] text-foreground sm:text-lg lg:text-xl">
+              LUMIWAVES
+            </span>
+          </Link>
         </motion.div>
 
         <nav
@@ -89,7 +87,6 @@ export function SiteHeader() {
               </Link>
             </motion.div>
           ))}
-
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
@@ -112,7 +109,6 @@ export function SiteHeader() {
           </button>
         </div>
       </motion.header>
-
 
       <AnimatePresence>
         {open && (
@@ -153,7 +149,6 @@ export function SiteHeader() {
                       <ArrowRight className="h-4 w-4 text-gold" />
                     </Link>
                   </motion.li>
-
                 ))}
               </ul>
 
@@ -165,7 +160,6 @@ export function SiteHeader() {
                 Book Experience
                 <ArrowRight className="h-4 w-4" />
               </Link>
-
             </motion.nav>
           </motion.div>
         )}

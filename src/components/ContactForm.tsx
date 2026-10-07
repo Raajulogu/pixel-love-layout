@@ -251,7 +251,8 @@ export function ContactForm({
         )}
         {status === "error" && (
           <p className="mt-4 rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-3 text-[0.95rem] text-foreground">
-            Something went wrong. Please call or WhatsApp us instead — we&apos;ll respond right away.
+            Something went wrong. Please call or WhatsApp us instead — we&apos;ll respond right
+            away.
           </p>
         )}
       </div>

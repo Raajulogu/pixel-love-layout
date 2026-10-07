@@ -10,21 +10,24 @@ const stories = [
   {
     img: story1,
     alt: "Modern villa at dusk with warm glowing windows",
-    quote: "\u201CZenith transformed the way we live. Everything just works together beautifully.\u201D",
+    quote:
+      "\u201CZenith transformed the way we live. Everything just works together beautifully.\u201D",
     name: "Arjun R.",
     city: "Bangalore",
   },
   {
     img: story2,
     alt: "Luxury apartment living room at night with city skyline",
-    quote: "\u201CThe touch panel is stunning and the automation is incredibly smooth. Highly recommended!\u201D",
+    quote:
+      "\u201CThe touch panel is stunning and the automation is incredibly smooth. Highly recommended!\u201D",
     name: "Priya S.",
     city: "Chennai",
   },
   {
     img: story3,
     alt: "Contemporary house at night with illuminated driveway",
-    quote: "\u201CInstallation was seamless and the support is outstanding. Zenith is worth every penny.\u201D",
+    quote:
+      "\u201CInstallation was seamless and the support is outstanding. Zenith is worth every penny.\u201D",
     name: "Karthik M.",
     city: "Hyderabad",
   },
@@ -37,15 +40,7 @@ const numbers = [
   { icon: ShieldCheck, to: 99.9, decimals: 1, suffix: "%", label: "System Reliability" },
 ];
 
-function CountValue({
-  to,
-  decimals,
-  suffix,
-}: {
-  to: number;
-  decimals: number;
-  suffix: string;
-}) {
+function CountValue({ to, decimals, suffix }: { to: number; decimals: number; suffix: string }) {
   const { ref, value } = useCountUp(to, decimals);
   return (
     <p className="font-display text-xl font-medium text-foreground">
@@ -145,7 +140,9 @@ export function StoriesSection() {
             {...fade(0.15)}
             className="rounded-2xl bg-hero-base/70 px-7 py-8 ring-1 ring-foreground/[0.06]"
           >
-            <h3 className="text-center text-[0.95rem] font-medium text-foreground">Zenith in Numbers</h3>
+            <h3 className="text-center text-[0.95rem] font-medium text-foreground">
+              Zenith in Numbers
+            </h3>
             <div className="mt-7 flex flex-col gap-7">
               {numbers.map(({ icon: Icon, to, decimals, suffix, label }) => (
                 <div key={label} className="flex items-center gap-4">

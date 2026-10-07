@@ -178,6 +178,5 @@ function RootComponent() {
         <Outlet />
       </MotionConfig>
     </QueryClientProvider>
-
   );
 }

@@ -24,7 +24,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Meet Zenith — Lumiwaves Smart Home Automation" },
       {
         property: "og:description",
-        content: "The intelligence behind every modern home. Premium smart automation by Lumiwaves.",
+        content:
+          "The intelligence behind every modern home. Premium smart automation by Lumiwaves.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://pixel-love-layout.lovable.app/" },
@@ -59,7 +60,12 @@ function Index() {
 
           <div className="grid flex-1 items-center gap-10 px-6 pt-8 pb-10 sm:px-12 sm:pt-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:gap-12 lg:px-14 xl:px-20">
             {/* Copy */}
-            <motion.div initial="hidden" animate="show" variants={staggerParent} className="max-w-xl">
+            <motion.div
+              initial="hidden"
+              animate="show"
+              variants={staggerParent}
+              className="max-w-xl"
+            >
               <motion.p
                 variants={staggerChild}
                 className="text-xs font-medium uppercase tracking-[0.35em] text-gold"
@@ -129,8 +135,6 @@ function Index() {
           </motion.div>
         </div>
       </section>
-
-
 
       <EcosystemSection />
       <ProductsSection />

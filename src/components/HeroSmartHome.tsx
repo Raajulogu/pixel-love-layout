@@ -1,15 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import {
-  Lightbulb,
-  Fan,
-  Blinds,
-  Wind,
-  Lock,
-  Unlock,
-  Sparkles,
-  Hand,
-} from "lucide-react";
+import { Lightbulb, Fan, Blinds, Wind, Lock, Unlock, Sparkles, Hand } from "lucide-react";
 import houseImg from "@/assets/hero-house.jpg";
 
 type DeviceKey = "light" | "fan" | "curtains" | "ac" | "lock";
@@ -99,14 +90,29 @@ export function HeroSmartHome() {
     setState((s) => ({ ...s, light: true, fan: true, curtains: true, ac: true }));
   };
 
-  const t = (ms: number) => ({ transitionDuration: `${reduced ? 120 : ms}ms`, transitionTimingFunction: EASE_CSS });
+  const t = (ms: number) => ({
+    transitionDuration: `${reduced ? 120 : ms}ms`,
+    transitionTimingFunction: EASE_CSS,
+  });
 
-  const devices: { key: DeviceKey; name: string; icon: typeof Lightbulb; on: string; off: string }[] = [
+  const devices: {
+    key: DeviceKey;
+    name: string;
+    icon: typeof Lightbulb;
+    on: string;
+    off: string;
+  }[] = [
     { key: "light", name: "Lights", icon: Lightbulb, on: "On", off: "Off" },
     { key: "fan", name: "Fan", icon: Fan, on: "On", off: "Off" },
     { key: "curtains", name: "Curtains", icon: Blinds, on: "Open", off: "Closed" },
     { key: "ac", name: "Climate", icon: Wind, on: "24°C", off: "Off" },
-    { key: "lock", name: "Front Lock", icon: state.lock ? Lock : Unlock, on: "Secured", off: "Unlocked" },
+    {
+      key: "lock",
+      name: "Front Lock",
+      icon: state.lock ? Lock : Unlock,
+      on: "Secured",
+      off: "Unlocked",
+    },
   ];
 
   return (
@@ -285,7 +291,9 @@ export function HeroSmartHome() {
           <Sparkles className="h-5 w-5 shrink-0 text-gold" strokeWidth={1.4} />
           <span className="min-w-0">
             <span className="block truncate text-[0.8rem] text-foreground">Everything On</span>
-            <span className="block truncate text-[0.75rem] text-muted-foreground">One tap scene</span>
+            <span className="block truncate text-[0.75rem] text-muted-foreground">
+              One tap scene
+            </span>
           </span>
         </button>
       </div>
